@@ -1,0 +1,107 @@
+//colors
+$font-color: white;
+$background-color-transparent-50: rgba(50, 50, 50, 0.5);
+$background-color-transparent-80: rgba(50, 50, 50, 0.8);
+$fallback_color: gray;
+$red: red;
+$green: green;
+$font-stack: 'Oxygen', Helvetica, sans-serif;
+
+//urls
+$background_img: url(/images/champ.jpg);
+
+@font-face {
+  font-family: Oxygen;
+  src: url(/fonts/oxygen.woff2) format('woff2')
+}
+
+body {
+  margin: 0;
+  font: 100% $font-stack;
+}
+
+header {
+  height: 100%;
+  margin: 0 20px;
+}
+
+#top {
+  height: 20px;
+  color: $font-color;
+}
+
+#title {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 50px;
+  background-color: $background-color-transparent-50;
+  color: $font-color;
+}
+
+#nav {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 50px;
+  background-color: $background-color-transparent-80;
+  color: $font-color;
+}
+
+#content {
+  min-height: 300px;
+  margin: 20px;
+  background-color: $background-color-transparent-50;
+}
+
+.bkgrnd {
+  background: $fallback_color $background_img no-repeat center top fixed;
+  background-size: cover;
+  top: 0;
+  left: 0;
+}
+
+.red {
+  color: $red;
+}
+
+.green {
+  color: $green;
+}
+
+.nav-item {
+  padding: 10px;
+  flex-grow: 0;
+  &:last-child {
+    margin-left: auto;
+  }
+  &:hover {
+    min-height: 50px;
+  }
+}
+
+.subcat {
+  height: 0px;
+}
+
+.title-item {
+  padding: 10px;
+  flex-grow: 0;
+  &:last-child {
+    margin-left: auto;
+  }
+}
+
+// Classic:
+@media screen and (min-width: 480px) and (max-width: 960px) {
+  #nav {
+    flex-flow: row wrap;
+  }
+}
+
+// HD ready and more:
+@media screen and (min-width: 961px) {
+  #nav {
+    flex-flow: row wrap;
+    max-width: 960px;
+  }
+}
+

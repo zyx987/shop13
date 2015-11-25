@@ -1,0 +1,97 @@
+/* Compiled: Rene.Jasmin | 2015-11-22 16:27:27 */
+
+@font-face {
+  font-family: Oxygen;
+  src: url(/fonts/oxygen.woff2) format("woff2");
+}
+
+body {
+  margin: 0;
+  font: 100% "Oxygen", Helvetica, sans-serif;
+}
+
+header {
+  height: 100%;
+  margin: 0 20px;
+}
+
+#top {
+  height: 20px;
+  color: white;
+}
+
+#title {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 50px;
+  background-color: rgba(50, 50, 50, 0.5);
+  color: white;
+}
+
+#nav {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 50px;
+  background-color: rgba(50, 50, 50, 0.8);
+  color: white;
+}
+
+#content {
+  min-height: 300px;
+  margin: 20px;
+  background-color: rgba(50, 50, 50, 0.5);
+}
+
+.bkgrnd {
+  background: gray url(/images/champ.jpg) no-repeat center top fixed;
+  background-size: cover;
+  top: 0;
+  left: 0;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.nav-item {
+  padding: 10px;
+  flex-grow: 0;
+}
+
+.nav-item:last-child {
+  margin-left: auto;
+}
+
+.nav-item:hover {
+  min-height: 50px;
+}
+
+.subcat {
+  height: 0px;
+}
+
+.title-item {
+  padding: 10px;
+  flex-grow: 0;
+}
+
+.title-item:last-child {
+  margin-left: auto;
+}
+
+@media screen and (min-width: 480px) and (max-width: 960px) {
+  #nav {
+    flex-flow: row wrap;
+  }
+}
+
+@media screen and (min-width: 961px) {
+  #nav {
+    flex-flow: row wrap;
+    max-width: 960px;
+  }
+}
