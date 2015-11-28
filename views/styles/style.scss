@@ -1,8 +1,11 @@
+@import 'mixins.scss';
+
 //colors
 $font-color: white;
 $background-color-transparent-50: rgba(50, 50, 50, 0.5);
 $background-color-transparent-80: rgba(50, 50, 50, 0.8);
 $fallback_color: gray;
+$shop13-product-background: white;
 $red: red;
 $green: green;
 $font-stack: 'Oxygen', Helvetica, sans-serif;
@@ -31,16 +34,16 @@ header {
 }
 
 #title {
-  display: flex;
-  flex-flow: row nowrap;
+  @include flexbox();
+  @include flex-flow(row nowrap);
   height: 50px;
   background-color: $background-color-transparent-50;
   color: $font-color;
 }
 
 #nav {
-  display: flex;
-  flex-flow: column nowrap;
+  @include flexbox();
+  @include flex-flow(column nowrap);
   min-height: 50px;
   background-color: $background-color-transparent-80;
   color: $font-color;
@@ -69,7 +72,7 @@ header {
 
 .nav-item {
   padding: 10px;
-  flex-grow: 0;
+  @include flex-grow(0);
   &:last-child {
     margin-left: auto;
   }
@@ -82,25 +85,33 @@ header {
   height: 0px;
 }
 
+
 .title-item {
   padding: 10px;
-  flex-grow: 0;
+  @include flex-grow(0);
   &:last-child {
     margin-left: auto;
   }
 }
 
+.product-item {
+  background-color: $shop13-product-background;
+  min-height: 300px;
+  max-width: 300px;
+  margin: 20px;
+}
+
 // Classic:
 @media screen and (min-width: 480px) and (max-width: 960px) {
   #nav {
-    flex-flow: row wrap;
+    @include flex-flow(row wrap);
   }
 }
 
 // HD ready and more:
 @media screen and (min-width: 961px) {
   #nav {
-    flex-flow: row wrap;
+    @include flex-flow(row wrap);
     max-width: 960px;
   }
 }

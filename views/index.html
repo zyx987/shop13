@@ -21,7 +21,7 @@
                  ng-repeat="entry in shop13.products.tree">
                 <div ng-bind="entry.category"></div>
                 <div class="subcat"
-                        ng-repeat="sub in entry.subcategories"
+                     ng-repeat="sub in entry.subcategories"
                      ng-bind="sub"></div>
             </div>
             <div class="nav-item">Cart</div>
@@ -29,13 +29,13 @@
     </header>
 
     <div id="content">
-        <!--<div ng-repeat="product in shop13.products.all">-->
-        <!--<product ctrl-model="product"></product>-->
-        <!--</div>-->
-        <div ng-repeat="entry in shop13.categories">
-            <div>{{entry.category}}</div>
-            <li ng-repeat="subcat in entry.subcategories">{{subcat}}</li>
+        <div ng-repeat="product in shop13.products.all">
+            <product ctrl-model="product"></product>
         </div>
+        <!--<div ng-repeat="entry in shop13.categories">-->
+        <!--<div>{{entry.category}}</div>-->
+        <!--<li ng-repeat="subcat in entry.subcategories">{{subcat}}</li>-->
+        <!--</div>-->
     </div>
 
 </div>
@@ -43,7 +43,11 @@
 <script type="text/javascript" src="angular.js"></script>
 <script type="text/javascript" src="angular-route.js"></script>
 <script type="text/javascript" src="angular-resource.js"></script>
-<script type="text/javascript" src="javascripts/shop13.js"></script>
-<script type="text/javascript" src="javascripts/products_model.js"></script>
+<script type="text/javascript" src="shop13.js"></script>
+<script type="text/javascript" src="controller/shop13Controller.js"></script>
+<script type="text/javascript" src="service/productService.js"></script>
+<script type="text/javascript" src="service/restService.js"></script>
+<script type="text/javascript" src="directive/productDirective.js"></script>
+<script type="text/javascript" src="javascripts/helpers.js"></script>
 </body>
 </html>

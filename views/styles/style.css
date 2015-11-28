@@ -1,4 +1,4 @@
-/* Compiled: Rene.Jasmin | 2015-11-22 16:27:27 */
+/* Compiled: rene.ulrich | 2015-11-25 21:15:14 */
 
 @font-face {
   font-family: Oxygen;
@@ -21,7 +21,14 @@ header {
 }
 
 #title {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-flow: row nowrap;
+  -moz-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
   flex-flow: row nowrap;
   height: 50px;
   background-color: rgba(50, 50, 50, 0.5);
@@ -29,7 +36,14 @@ header {
 }
 
 #nav {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-flow: column nowrap;
+  -moz-flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
   min-height: 50px;
   background-color: rgba(50, 50, 50, 0.8);
@@ -59,6 +73,9 @@ header {
 
 .nav-item {
   padding: 10px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -moz-flex-grow: 0;
   flex-grow: 0;
 }
 
@@ -76,6 +93,9 @@ header {
 
 .title-item {
   padding: 10px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -moz-flex-grow: 0;
   flex-grow: 0;
 }
 
@@ -83,14 +103,27 @@ header {
   margin-left: auto;
 }
 
+.product-item {
+  background-color: white;
+  min-height: 300px;
+  max-width: 300px;
+  margin: 20px;
+}
+
 @media screen and (min-width: 480px) and (max-width: 960px) {
   #nav {
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
     flex-flow: row wrap;
   }
 }
 
 @media screen and (min-width: 961px) {
   #nav {
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
     flex-flow: row wrap;
     max-width: 960px;
   }
