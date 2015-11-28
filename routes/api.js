@@ -27,9 +27,9 @@ var db = new Datastore({filename: './products/products.db', autoload: true});
 //    db.insert(new Product(product), function (err, newDoc) {});
 //});
 
-db.find({brand: 'Gibson'}, function (err, doc) {
-    console.log(JSON.stringify(doc));
-});
+//db.find({brand: 'Gibson'}, function (err, doc) {
+//    console.log(JSON.stringify(doc));
+//});
 
 router.get("/products",
     function (req, res) {
@@ -48,6 +48,14 @@ router.get("/products",
             });
         } else if (req.query.category) {
             db.find({category: req.query.category}).sort({id: 1}).exec(function (err, doc) {
+                if (doc.length) {
+                    res.json(doc);
+                } else {
+                    res.sendStatus(404);
+                }
+            });
+        } else if (req.query.subCategory) {
+            db.find({subCategory: req.query.subCategory}).sort({id: 1}).exec(function (err, doc) {
                 if (doc.length) {
                     res.json(doc);
                 } else {

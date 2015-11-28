@@ -68,6 +68,10 @@
                 getByCategory = function (category, callback) {
                     restService.get('api/products?category=:category', product, {category: category}, Product, callback);
                 },
+                /** Get Products by ids: /api/products?category=category */
+                getBySubCategory = function (subCategory, callback) {
+                    restService.get('api/products?subCategory=:subCategory', product, {subCategory: subCategory}, Product, callback);
+                },
                 /** Get Product Tree from api: /api/categories */
                 getCategoryTree = function (callback) {
                     restService.get('api/categories', categoryTree, {}, TreeEntry, callback);
@@ -87,6 +91,7 @@
                 getById: getById,
                 getByIds: getByIds,
                 getByCategory: getByCategory,
+                getBySubCategory: getBySubCategory,
                 getCategoryTree: getCategoryTree,
                 getBrands: getBrands,
                 getByBrand: getByBrand
