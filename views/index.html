@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="styles/style.css" type="text/css">
+    <link href="angular-carousel.css" rel="stylesheet" type="text/css"/>
 </head>
 <body class="bkgrnd">
 <div ng-controller="Shop13Controller as shop13">
@@ -12,19 +13,35 @@
         <div id="top">Top of Page</div>
         <div id="title">
             <div class="title-item"
-                 ng-bind="shop13.title"></div>
+                 ng-bind="shop13.title"
+                 ui-sref="home"></div>
             <div class="title-item">login</div>
         </div>
         <div id="nav">
-            <div class="nav-item">products</div>
+            <div class="nav-item"
+                 ui-sref="products">products
+            </div>
             <div class="nav-item"
                  ng-repeat="entry in shop13.products.tree">
-                <div ng-bind="entry.category"></div>
+                <div ng-bind="entry.category"
+                     ui-sref="{{entry.category}}"></div>
                 <div class="subcat"
-                     ng-repeat="sub in entry.subcategories"
-                     ng-bind="sub"></div>
+                     ng-repeat="subcategory in entry.subcategories"
+                     ng-bind="subcategory"
+                     ui-sref="{{subcategory}}"></div>
             </div>
-            <div class="nav-item">Cart</div>
+            <div class="nav-item">
+                <div ng-bind="'brands'"></div>
+                <div ng-repeat="brand in shop13.products.brands | orderBy: 'name' as filtered track by brand.name">
+                    <div class="subcat"
+                         ng-bind="brand.name + ' [ ' + brand.quantity + ' ]'"
+                         ui-sref="{{brand.name}}">
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item"
+                 ui-sref="cart"
+                 ng-bind="'Cart [ ' + shop13.cart.quantity.inCart + ' ]'"></div>
         </div>
     </header>
 
@@ -41,7 +58,11 @@
 <script type="text/javascript" src="angular-carousel.js"></script>
 <script type="text/javascript" src="shop13.js"></script>
 <script type="text/javascript" src="controller/shop13Controller.js"></script>
+<script type="text/javascript" src="controller/cartController.js"></script>
+<script type="text/javascript" src="controller/productsController.js"></script>
+<script type="text/javascript" src="controller/homeController.js"></script>
 <script type="text/javascript" src="service/productService.js"></script>
+<script type="text/javascript" src="service/cartService.js"></script>
 <script type="text/javascript" src="service/restService.js"></script>
 <script type="text/javascript" src="directive/productDirective.js"></script>
 <script type="text/javascript" src="javascripts/helpers.js"></script>

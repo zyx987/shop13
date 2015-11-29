@@ -15,9 +15,14 @@
     var app = angular.module('shop13', [
         'ui.router',
         'ngResource',
+        'ngTouch',
         'angular-carousel',
         'shop13Controller',
+        'cartController',
+        'productsController',
+        'homeController',
         'productService',
+        'cartService',
         'restService',
         'productDirective',
         'helpers'
@@ -43,13 +48,36 @@
                   $state) {
 
             /**
-             * Define the static urls
+             * Define the static routes
              * */
+
+            /** create home route */
             $stateProviderRef.state('home', {
                 "url": "/home",
                 "templateUrl": "templates/tmp.home.html",
-                "controller": '',
+                "controller": 'HomeController',
+                "controllerAs": 'home'
+            });
+
+            /** create products route (if someone really wants to view all products) */
+            $stateProviderRef.state('products', {
+                "url": "/products",
+                "templateUrl": "templates/tmp.products.html",
+                "controller": function () {
+                    var vm = this;
+                    productService.update(function (products) {
+                        vm.products = products;
+                    });
+                },
                 "controllerAs": 'vm'
+            });
+
+            /** create cart route */
+            $stateProviderRef.state('cart', {
+                "url": "/cart",
+                "templateUrl": "templates/tmp.cart.html",
+                "controller": 'CartController',
+                "controllerAs": 'cart'
             });
 
             /** start application at home */
@@ -59,10 +87,10 @@
             $urlRouterProviderRef.otherwise("home");
 
             /**
-             * Define the dynamic urls from database
+             * Define the dynamic routes from database
              * */
 
-            /** Load product tree from api and create the urls */
+            /** Load product tree from api and create the routes */
             productService.getCategoryTree(function (tree) {
                 angular.forEach(tree,
                     function (value) {
@@ -96,26 +124,25 @@
                         );
                     }
                 );
-            });
-
-            /** Load the brands from api and create the urls */
-            productService.getBrands(function (brands) {
-                angular.forEach(brands,
-                    function (value) {
-                        var state = {
-                            "url": "/" + value.name,
-                            "templateUrl": 'templates/tmp.products.html',
-                            "controller": function () {
-                                var vm = this;
-                                productService.getByBrand(value.name, function (products) {
-                                    vm.products = products;
-                                });
-                            },
-                            "controllerAs": 'vm'
-                        };
-                        $stateProviderRef.state(value.name, state);
-                    }
-                );
+                /** when the product tree is loaded, load the brands from api and create the routes */
+                productService.getBrands(function (brands) {
+                    angular.forEach(brands,
+                        function (value) {
+                            var state = {
+                                "url": "/" + value.name,
+                                "templateUrl": 'templates/tmp.products.html',
+                                "controller": function () {
+                                    var vm = this;
+                                    productService.getByBrand(value.name, function (products) {
+                                        vm.products = products;
+                                    });
+                                },
+                                "controllerAs": 'vm'
+                            };
+                            $stateProviderRef.state(value.name, state);
+                        }
+                    );
+                });
             });
         }
     );

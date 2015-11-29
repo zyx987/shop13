@@ -1,1 +1,19 @@
-<div>Home</div>
+<div>{{home.title}}</div>
+
+<div>
+    <ul rn-carousel class="slide-item"
+        rn-carousel-index="home.index"
+        rn-carousel-auto-slide="5"
+        class="">
+        <li ng-repeat="slide in home.slides track by slide.id"
+            ng-class="'id-' + slide.id">
+            <div ng-bind="slide.url"></div>
+        </li>
+    </ul>
+    <div class="custom-indicator">
+        <span ng-repeat="slide in home.slides"
+              ng-class="{active: $index===home.index}"
+              ng-click="home.index = $index">&#9679;
+        </span>
+    </div>
+</div>

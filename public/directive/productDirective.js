@@ -19,8 +19,7 @@
                 templateUrl: 'templates/product_tmpl.html',
                 restrict: 'AE',
                 scope: {
-                    ctrlModel: '=',
-                    ctrlChange: '&'
+                    ctrlModel: '='
                 },
                 link: function (scope, element, attrs) {
                     element.on('click', function () {

@@ -2,6 +2,8 @@
  * Created by rene.ulrich on 30.09.2015.
  */
 
+'use strict';
+
 var express = require('express');
 var router = express.Router();
 //var data = require("../products/products.js");
@@ -25,10 +27,6 @@ var db = new Datastore({filename: './products/products.db', autoload: true});
 //
 //data.products.forEach(function (product) {
 //    db.insert(new Product(product), function (err, newDoc) {});
-//});
-
-//db.find({brand: 'Gibson'}, function (err, doc) {
-//    console.log(JSON.stringify(doc));
 //});
 
 router.get("/products",

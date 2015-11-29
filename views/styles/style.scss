@@ -72,6 +72,7 @@ header {
 
 .nav-item {
   padding: 10px;
+  cursor: pointer;
   @include flex-grow(0);
   &:last-child {
     margin-left: auto;
@@ -82,12 +83,12 @@ header {
 }
 
 .subcat {
-  height: 0px;
+  //height: 0px;
 }
-
 
 .title-item {
   padding: 10px;
+  cursor: pointer;
   @include flex-grow(0);
   &:last-child {
     margin-left: auto;
@@ -99,6 +100,26 @@ header {
   min-height: 300px;
   max-width: 300px;
   margin: 20px;
+}
+
+.slide-item {
+  height: 200px;
+}
+
+.custom-indicator {
+  text-align: center;
+  cursor: pointer;
+  padding-top: 5px;
+  color: rgba(102, 102, 102, 1);
+  font-size: 36px;
+  //text-shadow: 1px 1px 1px rgba(102, 102, 102, 0.8);
+}
+
+div.custom-indicator span {
+  transition: all 0.2s ease-in;
+  &.active {
+    color: white !important;
+  }
 }
 
 // Classic:

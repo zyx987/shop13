@@ -8,21 +8,21 @@
 
     'use strict';
 
-    var app = angular.module('shop13Controller', []);
+    var app = angular.module('cartController', []);
 
     /**
-     * Main controller of shop13 application
+     * Cart controller of shop13 application
      * */
-    app.controller('Shop13Controller',
+    app.controller('CartController',
 
         function (productService,
                   cartService) {
 
             /** View Model */
             var vm = this;
-            vm.title = 'shop 13 \\m/ - source of pure tone';
-            vm.products = productService;
-            vm.cart = cartService;
+            vm.items = cartService.cart;
+            //cartService.add(101);
+            //cartService.add(300);
 
         }
     );
