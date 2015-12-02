@@ -1,9 +1,13 @@
-<div ng-repeat="item in cart.items"
-     ng-if="cart.items.length">
-    <product ctrl-model="item.product"
-             cart="true"></product>
+<div ng-repeat="item in cart.cart.cart"
+     ng-show="cart.cart.cart.length">
+    <product-view ctrl-model="item.product"
+                  cart-quantity="cart.cart.quantity.inCart"></product-view>
 </div>
 
-<div ng-if="!cart.items.length">
+<div ng-show="cart.cart.cart.length">
+    <button>Check out</button>
+</div>
+
+<div ng-show="!cart.cart.cart.length">
     No products in your cart
 </div>

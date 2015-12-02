@@ -4,8 +4,8 @@
     <div ng-bind="::ctrlModel.short"></div>
     <!--<div ng-bind="::ctrlModel.description"></div>-->
     <!--<img ng-src="{{::ctrlModel.picUrl}}" height="100%" width="100%" alt="{{ctrlModel.name}}"/>-->
-    <button ng-show="cart === false"
-            id="{{'add_'+ctrlModel.id}}">Add to cart</button>
-    <button ng-show="cart === true"
-            id="{{'remove_'+ctrlModel.id}}">Remove from cart</button>
+    <div ng-bind="quantity + ' in your cart'"></div>
+    <add-button product-id="ctrlModel.id"></add-button>
+    <remove-button ng-show="quantity"
+                   product-id="ctrlModel.id"></remove-button>
 </div>

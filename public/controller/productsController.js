@@ -19,6 +19,10 @@
 
             /** View Model */
             var vm = this;
+            vm.products = [];
+            productService.update(function (products) {
+                vm.products = products;
+            });
 
         }
     );

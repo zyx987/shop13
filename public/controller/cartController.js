@@ -20,10 +20,7 @@
 
             /** View Model */
             var vm = this;
-            vm.items = cartService.cart;
-            //cartService.add(101);
-            //cartService.add(300);
-
+            vm.cart = cartService;
         }
     );
 

@@ -25,6 +25,8 @@
         'cartService',
         'restService',
         'productDirective',
+        'addButtonDirective',
+        'removeButtonDirective',
         'helpers',
         'shop13Filters'
     ]);
@@ -64,12 +66,12 @@
             $stateProviderRef.state('products', {
                 "url": "/products",
                 "templateUrl": "templates/tmp.products.html",
-                "controller": function () {
+                "controller": 'ProductsController',/*function () {
                     var vm = this;
                     productService.update(function (products) {
                         vm.products = products;
                     });
-                },
+                },*/
                 "controllerAs": 'vm'
             });
 

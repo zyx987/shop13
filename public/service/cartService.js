@@ -40,7 +40,7 @@
                         count();
                     }
                 },
-                add = function (id) {
+                add = function (id, callback) {
                     if (id) {
                         productService.getByIdsNoUpdate(id, function (product) {
                             var productFound = false;
@@ -58,8 +58,31 @@
                                 cart.push(new CartEntry(entry));
                             }
                             count();
+                            if (typeof(callback) === 'function') {
+                                callback();
+                            }
                         });
                     }
+                },
+                remove = function (id) {
+                    cart.forEach(function (entry, idx) {
+                        if (entry.product.id === id) {
+                            entry.quantity -= 1;
+                            if (!entry.quantity) {
+                                cart.splice(idx, 1);
+                            }
+                        }
+                    });
+                    count();
+                },
+                getQuantity = function (id) {
+                    var quantity = 0;
+                    cart.forEach(function (entry) {
+                        if (entry.product.id === id) {
+                            quantity = entry.quantity;
+                        }
+                    });
+                    return quantity;
                 };
 
             /** Private data and functions */
@@ -76,7 +99,9 @@
                 cart: cart,
                 quantity: quantity,
                 create: createCart,
-                add: add
+                add: add,
+                remove: remove,
+                getQuantity: getQuantity
             };
         }
     );
