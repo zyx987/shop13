@@ -25,7 +25,8 @@
         'cartService',
         'restService',
         'productDirective',
-        'helpers'
+        'helpers',
+        'shop13Filters'
     ]);
 
     /**

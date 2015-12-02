@@ -1,5 +1,5 @@
 /**
- * Created by Rene.Jasmin on 29.11.2015.
+ * Created by Rene Ulrich on 29.11.2015.
  */
 
 (function () {
@@ -23,7 +23,8 @@
             /** Public data and functions */
             var cart = [],
                 quantity = {
-                    inCart: 0
+                    inCart: 0,
+                    totalPrice: 0
                 },
                 createCart = function (ids) {
                     if (ids) {
@@ -41,7 +42,7 @@
                 },
                 add = function (id) {
                     if (id) {
-                        productService.getByIds(id, function (product) {
+                        productService.getByIdsNoUpdate(id, function (product) {
                             var productFound = false;
                             cart.forEach(function (entry) {
                                 if (entry.product.id === product[0].id) {
@@ -64,8 +65,10 @@
             /** Private data and functions */
             var count = function () {
                 quantity.inCart = 0;
+                quantity.totalPrice = 0;
                 cart.forEach(function (item) {
                     quantity.inCart += item.quantity;
+                    quantity.totalPrice += (item.quantity * item.product.price);
                 });
             };
 

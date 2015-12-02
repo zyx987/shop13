@@ -1,6 +1,7 @@
 <div ng-repeat="item in cart.items"
      ng-if="cart.items.length">
-    <product ctrl-model="item.product"></product>
+    <product ctrl-model="item.product"
+             cart="true"></product>
 </div>
 
 <div ng-if="!cart.items.length">

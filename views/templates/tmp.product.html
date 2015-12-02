@@ -1,0 +1,11 @@
+<div class="product-item">
+    <div class="product-title"
+         ng-bind="::ctrlModel.brand + ' - ' + ctrlModel.name"></div>
+    <div ng-bind="::ctrlModel.short"></div>
+    <!--<div ng-bind="::ctrlModel.description"></div>-->
+    <!--<img ng-src="{{::ctrlModel.picUrl}}" height="100%" width="100%" alt="{{ctrlModel.name}}"/>-->
+    <button ng-show="cart === false"
+            id="{{'add_'+ctrlModel.id}}">Add to cart</button>
+    <button ng-show="cart === true"
+            id="{{'remove_'+ctrlModel.id}}">Remove from cart</button>
+</div>

@@ -60,6 +60,10 @@
                 getByIds = function (ids, callback) {
                     restService.get('api/products?ids=:ids', product, {ids: ids}, Product, callback);
                 },
+                /** Get Products by ids: /api/products?ids=x,x,x */
+                getByIdsNoUpdate = function (ids, callback) {
+                    restService.get('api/products?ids=:ids', [], {ids: ids}, Product, callback);
+                },
                 /** Get Products by brand: /api/products?brand=brand */
                 getByBrand = function (brand, callback) {
                     restService.get('api/products?brand=:brand', product, {brand: brand}, Product, callback);
@@ -90,6 +94,7 @@
                 update: update,
                 getById: getById,
                 getByIds: getByIds,
+                getByIdsNoUpdate: getByIdsNoUpdate,
                 getByCategory: getByCategory,
                 getBySubCategory: getBySubCategory,
                 getCategoryTree: getCategoryTree,

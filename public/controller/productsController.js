@@ -1,5 +1,5 @@
 /**
- * Created by Rene.Jasmin on 29.11.2015.
+ * Created by Rene Ulrich on 29.11.2015.
  */
 
 (function () {

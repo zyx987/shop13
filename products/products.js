@@ -38,8 +38,8 @@ module.exports.products = [
         'including the Maestro vibrato with Lyre-engraved tailpiece plate (lightweight aluminum stopbar tailpiece also ' +
         'available). Other standard appointments include its cellulose trapezoid fingerboard inlays, single-ply binding ' +
         'along the fingerboard and a slim- neck profile. In addition to these details, the SG Standard Reissue also ' +
-        'benefits from elements of the Gibson Custom 20th Anniversary Specifications being introduced for 2013—one-piece ' +
-        'rosewood fingerboard, Kluson™ Deluxe machine heads, hot-hide glue neck fit, a Historic Truss Rod assembly with ' +
+        'benefits from elements of the Gibson Custom 20th Anniversary Specifications being introduced for 2013-one-piece ' +
+        'rosewood fingerboard, Kluson Deluxe machine heads, hot-hide glue neck fit, a Historic Truss Rod assembly with ' +
         'no tubing, accurate fingerboard binding color, new Custom Buckers created in the image of the original PAFs, ' +
         'and period-correct Aniline dye for guitars finished in Faded Cherry.',
         "color": 'Faded Cherry VOS',
@@ -68,12 +68,12 @@ module.exports.products = [
         "delivery": 'stock',
         "category": 'amps',
         "subCategory": 'head',
-        "short": 'The very first Marshall® amp, made back in 1962, was the JTM45.',
-        "description": 'The very first Marshall® amp, made back in 1962, was the JTM45. It was an instant hit and ' +
+        "short": 'The very first Marshall amp, made back in 1962, was the JTM45.',
+        "description": 'The very first Marshall amp, made back in 1962, was the JTM45. It was an instant hit and ' +
         'launched a whole new generation of groundbreaking guitar players and sounds. Since then, connoisseurs of tone ' +
-        'have sought out rare original JTM45s from the ’60s. Now they shall seek no more, thanks to this meticulously ' +
+        'have sought out rare original JTM45s from the \'60s. Now they shall seek no more, thanks to this meticulously ' +
         'accurate re-issue. ' +
-        'It was GZ34 rectification that was the key to the JTM45’s sound, and this is a feature painstakingly reproduced ' +
+        'It was GZ34 rectification that was the key to the JTM45\'s sound, and this is a feature painstakingly reproduced ' +
         'in this re-issue. The way the rectifier interacts with the other valves causes subtle harmonics to shift and ' +
         'smoulder beneath every note, producing the unmistakable, original, and much emulated Marshall sound.',
         "color": null,
@@ -92,7 +92,7 @@ module.exports.products = [
         'recordings.',
         "description": 'This little yellow box is responsible for those great distortion sounds heard on so many classic ' +
         'recordings. Set the Distortion control low and crank the Output knob to drive the front end of your amp for cool ' +
-        'blues tones, or max out the Distortion knob for classic early ’80s hard rock tone. There still isn\'t any ' +
+        'blues tones, or max out the Distortion knob for classic early \'80s hard rock tone. There still isn\'t any ' +
         'distortion unit on the market that sounds like the Distortion+.',
         "color": null,
         "picUrl": '/pics/effects_300.jpg'

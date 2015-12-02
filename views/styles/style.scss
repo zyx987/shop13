@@ -9,6 +9,8 @@ $shop13-product-background: white;
 $red: red;
 $green: green;
 $font-stack: 'Oxygen', Helvetica, sans-serif;
+$font-size-normal: 1.1rem;
+$font-size-small: 0.8rem;
 
 //urls
 $background_img: url(/images/champ.jpg);
@@ -39,6 +41,7 @@ header {
   height: 50px;
   background-color: $background-color-transparent-50;
   color: $font-color;
+  font-size: $font-size-normal;
 }
 
 #nav {
@@ -50,9 +53,13 @@ header {
 }
 
 #content {
+  @include flexbox();
+  @include flex-flow(row wrap);
+  //@include justify-content(space-between);
   min-height: 300px;
   margin: 20px;
   background-color: $background-color-transparent-50;
+  padding-right: 1rem;
 }
 
 .bkgrnd {
@@ -73,17 +80,22 @@ header {
 .nav-item {
   padding: 10px;
   cursor: pointer;
+  font-size: $font-size-normal;
   @include flex-grow(0);
   &:last-child {
     margin-left: auto;
   }
   &:hover {
     min-height: 50px;
+    color: $red;
   }
 }
 
 .subcat {
-  //height: 0px;
+  font-size: $font-size-small;
+  &:hover {
+    color: $green;
+  }
 }
 
 .title-item {
@@ -96,10 +108,16 @@ header {
 }
 
 .product-item {
+  @include flex-grow(0);
   background-color: $shop13-product-background;
   min-height: 300px;
+  //min-width: 300px;
   max-width: 300px;
-  margin: 20px;
+  margin: 1rem 0 0 1rem;
+}
+
+.product-title {
+  font-size: $font-size-normal;
 }
 
 .slide-item {
@@ -112,7 +130,6 @@ header {
   padding-top: 5px;
   color: rgba(102, 102, 102, 1);
   font-size: 36px;
-  //text-shadow: 1px 1px 1px rgba(102, 102, 102, 0.8);
 }
 
 div.custom-indicator span {
