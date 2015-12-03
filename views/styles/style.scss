@@ -30,6 +30,12 @@ header {
   margin: 0 20px;
 }
 
+input {
+  &.title-item {
+
+  }
+}
+
 #top {
   height: 20px;
   color: $font-color;

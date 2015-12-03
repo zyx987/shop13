@@ -23,8 +23,6 @@
                     quantity: '='
                 },
                 link: function (scope, element, attrs) {
-                    var addButton = '#add_'+scope.ctrlModel.id;
-                    var removeButton = '#remove_'+scope.ctrlModel.id;
                     scope.quantity = cartService.getQuantity(scope.ctrlModel.id);
                     element.on('click', function (e) {
                         if (element.hasClass('red')) {
@@ -35,26 +33,7 @@
                         e.stopPropagation();
                         e.preventDefault();
                     });
-                    //element.find('button').on('click', function(e){
-                    //    //e.stopPropagation();
-                    //    //e.preventDefault();
-                    //    if (element.hasClass('add')) {
-                    //        // add to cart
-                    //        cartService.add(scope.ctrlModel.id, function () {
-                    //            scope.quantity = cartService.getQuantity(scope.ctrlModel.id);
-                    //        });
-                    //    } else if (element.hasClass('remove')) {
-                    //        // remove from cart
-                    //        cartService.remove(scope.ctrlModel.id);
-                    //        scope.quantity = cartService.getQuantity(scope.ctrlModel.id);
-                    //    }
-                    //    // this is needed as the cart view is not
-                    //    // updated with the updated model
-                    //    scope.$apply();
-                    //    e.stopPropagation();
-                    //    e.preventDefault();
-                    //});
-            }
+                }
             }
         }
     );

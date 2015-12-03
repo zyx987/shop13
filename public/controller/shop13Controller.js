@@ -16,13 +16,31 @@
     app.controller('Shop13Controller',
 
         function (productService,
-                  cartService) {
+                  cartService,
+                  searchService,
+                  $scope,
+                  $filter,
+                  $state) {
 
             /** View Model */
             var vm = this;
             vm.title = 'shop 13 \\m/ - source of pure tone';
             vm.products = productService;
             vm.cart = cartService;
+            vm.search = '';
+
+            $scope.$watch(
+                function (scope) {
+                    return (vm.search);
+                },
+                function (newValue, oldValue) {
+                    if (newValue !== oldValue) {
+                        searchService.results = $filter('filter')(productService.all, {$: vm.search});
+                        $state.go("search");
+                    }
+                },
+                true
+            );
 
         }
     );

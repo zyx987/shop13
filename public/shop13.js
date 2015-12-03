@@ -21,9 +21,11 @@
         'cartController',
         'productsController',
         'homeController',
+        'searchController',
         'productService',
         'cartService',
         'restService',
+        'searchService',
         'productDirective',
         'addButtonDirective',
         'removeButtonDirective',
@@ -36,10 +38,12 @@
      * */
     app.config(
         function ($urlRouterProvider,
-                  $stateProvider) {
+                  $stateProvider,
+                  $locationProvider) {
 
             $urlRouterProviderRef = $urlRouterProvider;
             $stateProviderRef = $stateProvider;
+            //$locationProvider.html5Mode({enabled: true, requireBase: false});
         }
     );
 
@@ -66,12 +70,7 @@
             $stateProviderRef.state('products', {
                 "url": "/products",
                 "templateUrl": "templates/tmp.products.html",
-                "controller": 'ProductsController',/*function () {
-                    var vm = this;
-                    productService.update(function (products) {
-                        vm.products = products;
-                    });
-                },*/
+                "controller": 'ProductsController',
                 "controllerAs": 'vm'
             });
 
@@ -81,6 +80,14 @@
                 "templateUrl": "templates/tmp.cart.html",
                 "controller": 'CartController',
                 "controllerAs": 'cart'
+            });
+
+            /** create search route */
+            $stateProviderRef.state('search', {
+                "url": "/search",
+                "templateUrl": "templates/tmp.search.html",
+                "controller": 'SearchController',
+                "controllerAs": 'search'
             });
 
             /** start application at home */
