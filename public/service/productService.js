@@ -24,13 +24,6 @@
         return this;
     };
 
-    var ProductSearch = function (data) {
-        this.name = data.name;
-        this.brand = data.brand;
-        this.short = data.short;
-        this.color = data.color;
-    };
-
     var TreeEntry = function (data) {
         this.category = data.category;
         this.subcategories = data.subcategories;
@@ -50,7 +43,6 @@
             var products = [],
                 categoryTree = [],
                 brands = [],
-                productsSearch = [],
 
                 /** Private data */
                 product = [],
@@ -98,7 +90,6 @@
                 all: products,
                 tree: categoryTree,
                 brands: brands,
-                productsSearch : productsSearch,
                 /** Update ALL! Products Model from api: /api/products/ */
                 update: update,
                 getById: getById,
