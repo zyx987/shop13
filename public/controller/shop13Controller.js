@@ -28,6 +28,20 @@
             vm.products = productService;
             vm.cart = cartService;
             vm.search = '';
+
+            $scope.$watch(
+                function (scope) {
+                    return (vm.search);
+                },
+                function (newValue, oldValue) {
+                    if (newValue !== oldValue) {
+                        searchService.results = $filter('filter')(productService.all, {$: vm.search});
+                        $state.go("search");
+                    }
+                },
+                true
+            );
+
         }
     );
 
