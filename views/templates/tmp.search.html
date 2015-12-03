@@ -1,6 +1,6 @@
-<div ng-repeat="product in search.results">
+<div ng-repeat="product in searchResults = (search.results | filter:{$:shop13.search})">
     <product-view ctrl-model="product"
                   cart-quantity="quantity"></product-view>
 </div>
 
-<div ng-show="!search.results.length">No search results found</div>
+<div ng-show="!searchResults.length">No search results found</div>

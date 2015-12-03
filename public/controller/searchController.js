@@ -11,27 +11,15 @@
     var app = angular.module('searchController', []);
 
     /**
-     * Main controller of shop13 application
+     * Search controller
      * */
     app.controller('SearchController',
-        function (productService,
-                  searchService,
-                  $scope) {
+        function (productService) {
 
             /** View Model */
             var vm = this;
-            vm.results = searchService.results;
+            vm.results = productService.all;
             productService.update();
-
-            $scope.$watch(
-                function (scope) {
-                    return (searchService.results);
-                },
-                function (newValue, oldValue) {
-                    vm.results = searchService.results;
-                },
-                true
-            );
         }
     );
 
