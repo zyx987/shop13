@@ -1,4 +1,161 @@
-/* Compiled: Rene.Jasmin | 2015-12-03 17:54:02 */
+/* Compiled: rene.ulrich | 2015-12-09 19:17:27 */
+
+#navigation {
+  width: 100%;
+}
+
+#navigation nav {
+  text-align: left;
+  margin-right: 40px;
+  font-size: 100%;
+  height: 50px;
+}
+
+#navigation nav ul {
+  background: #f0eceb;
+  padding: 0 20px;
+  list-style: none;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
+
+#navigation nav ul ul {
+  display: none;
+  background: #729f98;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+}
+
+#navigation nav ul ul li {
+  float: none;
+  position: relative;
+}
+
+#navigation nav ul ul li a {
+  padding: 5px 20px;
+  color: white;
+}
+
+#navigation nav ul ul li a:hover {
+  background: #aa863a;
+}
+
+#navigation nav ul ul ul {
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+
+#navigation nav ul li {
+  float: left;
+}
+
+#navigation nav ul li:hover {
+  background: #aa863a;
+}
+
+#navigation nav ul li:hover > ul {
+  display: block;
+}
+
+#navigation nav ul li:hover a {
+  color: white;
+}
+
+#navigation nav ul li a {
+  display: block;
+  padding: 10px 20px;
+  color: #757575;
+  text-decoration: none;
+}
+
+#navigation nav ul:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+#navigation-side {
+  overflow-y: scroll;
+}
+
+#navigation-side nav {
+  background-color: #aa863a;
+  position: absolute;
+  top: 50px;
+  left: -75%;
+  width: 75%;
+  text-align: left;
+  margin-right: 40px;
+  font-size: 100%;
+  overflow-y: scroll;
+  -webkit-transition: -webkit-transform 0.6s ease;
+  -moz-transition: -moz-transform 0.6s ease;
+  -ms-transition: -ms-transform 0.6s ease;
+  -o-transition: -o-transform 0.6s ease;
+  transition: transform 0.6s ease;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+}
+
+#navigation-side nav ul {
+  padding: 0 20px;
+  list-style: none;
+  margin: 0;
+}
+
+#navigation-side nav ul li a {
+  display: block;
+  padding: 10px 20px;
+  color: black;
+  text-decoration: none;
+}
+
+#navigation-side nav ul ul {
+  text-align: right;
+  background: #729f98;
+  margin-left: 50%;
+  position: relative;
+  top: -40px;
+}
+
+#navigation-side nav ul ul li a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+#navigation-side nav ul ul li a:active {
+  background-color: #aa863a;
+}
+
+.side-menu {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  #navigation {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #navigation-side {
+    display: none;
+  }
+  .side-menu {
+    display: none;
+  }
+}
 
 @font-face {
   font-family: Oxygen;
@@ -12,7 +169,7 @@ body {
 
 header {
   height: 100%;
-  margin: 0 20px;
+  width: 100%;
 }
 
 #top {
@@ -21,34 +178,31 @@ header {
 }
 
 #title {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
   -webkit-flex-flow: row nowrap;
   -moz-flex-flow: row nowrap;
   -ms-flex-flow: row nowrap;
   flex-flow: row nowrap;
-  height: 50px;
-  background-color: rgba(50, 50, 50, 0.5);
-  color: white;
+  height: 80px;
+  background-color: white;
+  color: black;
   font-size: 1.1rem;
-}
-
-#nav {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  -webkit-flex-flow: column nowrap;
-  -moz-flex-flow: column nowrap;
-  -ms-flex-flow: column nowrap;
-  flex-flow: column nowrap;
-  min-height: 50px;
-  background-color: rgba(50, 50, 50, 0.8);
-  color: white;
+}
+
+#title input {
+  height: 30px;
+  font-size: 1rem;
+  margin-left: 10px;
+  padding-left: 4px;
+}
+
+#title .logo {
+  padding-left: 40px;
+  font-size: 1.7rem;
 }
 
 #content {
@@ -68,8 +222,7 @@ header {
 }
 
 .bkgrnd {
-  background: gray url(/images/champ.jpg) no-repeat center top fixed;
-  background-size: cover;
+  background: #f0eceb;
   top: 0;
   left: 0;
 }
@@ -82,44 +235,56 @@ header {
   color: green;
 }
 
-.nav-item {
+.cart-menu {
   padding: 10px;
   cursor: pointer;
   font-size: 1.1rem;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -moz-flex-grow: 0;
-  flex-grow: 0;
-}
-
-.nav-item:last-child {
-  margin-left: auto;
-}
-
-.nav-item:hover {
-  min-height: 50px;
-  color: red;
-}
-
-.subcat {
-  font-size: 0.8rem;
-}
-
-.subcat:hover {
-  color: green;
+  background-color: rgba(50, 50, 50, 0.8);
+  color: white;
+  text-align: right;
 }
 
 .title-item {
-  padding: 10px;
+  padding: 0 20px;
   cursor: pointer;
+  height: 80px;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -moz-flex-grow: 0;
   flex-grow: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .title-item:last-child {
   margin-left: auto;
+  background-color: #aa863a;
+}
+
+.title-item:last-child:hover {
+  background-color: #283018;
+  color: white;
+}
+
+.title-search {
+  -webkit-box-flex: 10;
+  -webkit-flex-grow: 10;
+  -moz-flex-grow: 10;
+  flex-grow: 10;
+  text-align: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
 }
 
 .product-item {
@@ -157,21 +322,15 @@ div.custom-indicator span.active {
   color: white !important;
 }
 
-@media screen and (min-width: 480px) and (max-width: 960px) {
-  #nav {
-    -webkit-flex-flow: row wrap;
-    -moz-flex-flow: row wrap;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
+@media screen and (max-width: 768px) {
+  #title {
+    -webkit-flex-flow: column nowrap;
+    -moz-flex-flow: column nowrap;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    height: 200px;
   }
-}
-
-@media screen and (min-width: 961px) {
-  #nav {
-    -webkit-flex-flow: row wrap;
-    -moz-flex-flow: row wrap;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    max-width: 960px;
+  .title-item {
+    height: 50px;
   }
 }

@@ -2,7 +2,8 @@
 <html ng-app="shop13">
 <head lang="en">
     <meta charset="UTF-8">
-    <meta name="viewport" content="user-scalable=0"/>
+    <!--<meta name="viewport" content="user-scalable=0"/>-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="styles/style.css" type="text/css">
     <link href="angular-carousel.css" rel="stylesheet" type="text/css"/>
@@ -11,42 +12,80 @@
 <div ng-controller="Shop13Controller as shop13">
 
     <header>
-        <div id="top"></div>
+        <!--<div id="top"></div>-->
         <div id="title">
-            <div class="title-item"
-                 ng-bind="shop13.title"
+            <div class="title-item logo"
+                 ng-bind="'SHOP 13'"
                  ui-sref="home"></div>
-            <label class="title-item">Search in products</label>
-            <input ng-model="shop13.search"
-                   type="text"/>
-            <div class="title-item">login</div>
+            <div class="title-item"
+                 ng-bind="' source of pure tone'"
+                 ui-sref="home"></div>
+            <label class="title-search">Search in products
+                <input ng-model="shop13.search"
+                       placeholder="search it ..."
+                       type="text"/>
+            </label>
+
+            <div class="title-item">Login</div>
         </div>
-        <div id="nav">
-            <div class="nav-item"
-                 ui-sref="products">products
-            </div>
-            <div class="nav-item"
-                 ng-repeat="entry in shop13.products.tree">
-                <div ng-bind="entry.category"
-                     ui-sref="{{entry.category}}"></div>
-                <div class="subcat"
-                     ng-repeat="subcategory in entry.subcategories"
-                     ng-bind="subcategory"
-                     ui-sref="{{subcategory}}"></div>
-            </div>
-            <div class="nav-item">
-                <div ng-bind="'brands'"></div>
-                <div ng-repeat="brand in shop13.products.brands | orderBy: 'name' as filtered track by brand.name">
-                    <div class="subcat"
-                         ng-bind="brand.name + ' [ ' + brand.quantity + ' ]'"
-                         ui-sref="{{brand.name}}">
-                    </div>
-                </div>
-            </div>
-            <div class="nav-item"
-                 ui-sref="cart"
-                 ng-bind="'Cart [ ' + shop13.cart.quantity.inCart + ' ] [ ' + (shop13.cart.quantity.totalPrice | number:2) + ' CHF ]'"></div>
+        <div id="navigation">
+            <nav>
+                <ul>
+                    <li><a ui-sref="products">products</a></li>
+                    <li ng-repeat="entry in shop13.products.tree">
+                        <a ui-sref="{{entry.category}}"
+                           ng-bind="entry.category"></a>
+                        <ul>
+                            <li ng-repeat="sub in entry.subcategories">
+                                <a ui-sref="{{sub}}"
+                                   ng-bind="sub"></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a>brands</a>
+                        <ul>
+                            <li ng-repeat="brand in shop13.products.brands | orderBy: 'name' as filtered track by brand.name">
+                                <a ui-sref="{{brand.name}}"
+                                   ng-bind="brand.name + ' [ ' + brand.quantity + ' ]'"></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a ui-sref="cart"
+                           ng-bind="'Cart [ ' + shop13.cart.quantity.inCart + ' ] [ ' + (shop13.cart.quantity.totalPrice | number:2) + ' CHF ]'"></a>
+                    </li>
+                </ul>
+            </nav>
         </div>
+        <side-menu></side-menu>
+        <div id="navigation-side">
+            <nav>
+                <ul>
+                    <li><a ui-sref="cart"
+                           ng-bind="'Cart [ ' + shop13.cart.quantity.inCart + ' ] [ ' + (shop13.cart.quantity.totalPrice | number:2) + ' CHF ]'"></a>
+                    </li>
+                    <li><a ui-sref="products">products</a></li>
+                    <li ng-repeat="entry in shop13.products.tree">
+                        <a ui-sref="{{entry.category}}"
+                           ng-bind="entry.category"></a>
+                        <ul>
+                            <li ng-repeat="sub in entry.subcategories">
+                                <a ui-sref="{{sub}}"
+                                   ng-bind="sub"></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a>brands</a>
+                        <ul>
+                            <li ng-repeat="brand in shop13.products.brands | orderBy: 'name' as filtered track by brand.name">
+                                <a ui-sref="{{brand.name}}"
+                                   ng-bind="brand.name + ' [ ' + brand.quantity + ' ]'"></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
     </header>
 
     <div ui-view
@@ -65,13 +104,17 @@
 <script type="text/javascript" src="controller/productsController.js"></script>
 <script type="text/javascript" src="controller/homeController.js"></script>
 <script type="text/javascript" src="controller/searchController.js"></script>
+<script type="text/javascript" src="controller/checkoutController.js"></script>
 <script type="text/javascript" src="service/productService.js"></script>
 <script type="text/javascript" src="service/cartService.js"></script>
 <script type="text/javascript" src="service/restService.js"></script>
 <script type="text/javascript" src="service/searchService.js"></script>
+<script type="text/javascript" src="service/clientVendorService.js"></script>
 <script type="text/javascript" src="directive/productDirective.js"></script>
 <script type="text/javascript" src="directive/addButtonDirective.js"></script>
 <script type="text/javascript" src="directive/removeButtonDirective.js"></script>
+<script type="text/javascript" src="directive/checkoutButtonDirective.js"></script>
+<script type="text/javascript" src="directive/sideMenuDirective.js"></script>
 <script type="text/javascript" src="javascripts/helpers.js"></script>
 <script type="text/javascript" src="javascripts/filters.js"></script>
 </body>

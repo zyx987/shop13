@@ -1,19 +1,13 @@
+@import 'colors.scss';
 @import 'mixins.scss';
+@import 'navigation.scss';
 
-//colors
-$font-color: white;
-$background-color-transparent-50: rgba(50, 50, 50, 0.5);
-$background-color-transparent-80: rgba(50, 50, 50, 0.8);
-$fallback_color: gray;
-$shop13-product-background: white;
-$red: red;
-$green: green;
 $font-stack: 'Oxygen', Helvetica, sans-serif;
 $font-size-normal: 1.1rem;
 $font-size-small: 0.8rem;
 
 //urls
-$background_img: url(/images/champ.jpg);
+$background_img: url(/images/backgound.jpg);
 
 @font-face {
   font-family: Oxygen;
@@ -27,13 +21,8 @@ body {
 
 header {
   height: 100%;
-  margin: 0 20px;
-}
-
-input {
-  &.title-item {
-
-  }
+  width: 100%;
+  //padding: 0 40px;
 }
 
 #top {
@@ -42,20 +31,22 @@ input {
 }
 
 #title {
-  @include flexbox();
   @include flex-flow(row nowrap);
-  height: 50px;
-  background-color: $background-color-transparent-50;
-  color: $font-color;
+  height: 80px;
+  background-color: white;
+  color: black;
   font-size: $font-size-normal;
-}
-
-#nav {
   @include flexbox();
-  @include flex-flow(column nowrap);
-  min-height: 50px;
-  background-color: $background-color-transparent-80;
-  color: $font-color;
+  input {
+    height: 30px;
+    font-size: 1rem;
+    margin-left: 10px;
+    padding-left: 4px;
+  }
+  .logo {
+    padding-left: 40px;
+    font-size: 1.7rem;
+  }
 }
 
 #content {
@@ -69,8 +60,9 @@ input {
 }
 
 .bkgrnd {
-  background: $fallback_color $background_img no-repeat center top fixed;
-  background-size: cover;
+  //background: $fallback_color $background_img no-repeat center top fixed;
+  //background-size: cover;
+  background: $shop13-lightgray;
   top: 0;
   left: 0;
 }
@@ -83,34 +75,40 @@ input {
   color: $green;
 }
 
-.nav-item {
+.cart-menu {
   padding: 10px;
   cursor: pointer;
   font-size: $font-size-normal;
-  @include flex-grow(0);
-  &:last-child {
-    margin-left: auto;
-  }
-  &:hover {
-    min-height: 50px;
-    color: $red;
-  }
-}
-
-.subcat {
-  font-size: $font-size-small;
-  &:hover {
-    color: $green;
-  }
+  background-color: $background-color-transparent-80;
+  color: $font-color;
+  text-align: right;
 }
 
 .title-item {
-  padding: 10px;
+  padding: 0 20px;
   cursor: pointer;
+  height: 80px;
   @include flex-grow(0);
+  @include flexbox();
+  justify-content: center;
+  align-items: center;
   &:last-child {
     margin-left: auto;
+    background-color: $shop13-brown;
+    &:hover {
+      background-color: $shop13-green;
+      color: white;
+    }
   }
+}
+
+.title-search {
+  @include flex-grow(10);
+  text-align: center;
+  @include flexbox();
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
 }
 
 .product-item {
@@ -125,6 +123,7 @@ input {
 .product-title {
   font-size: $font-size-normal;
 }
+
 
 .slide-item {
   height: 200px;
@@ -145,18 +144,28 @@ div.custom-indicator span {
   }
 }
 
-// Classic:
-@media screen and (min-width: 480px) and (max-width: 960px) {
-  #nav {
-    @include flex-flow(row wrap);
+@media screen and (max-width: 768px) {
+  #title {
+    @include flex-flow(column nowrap);
+    height: 200px;
   }
+  .title-item {
+    height: 50px;
+  }
+
 }
 
-// HD ready and more:
-@media screen and (min-width: 961px) {
-  #nav {
-    @include flex-flow(row wrap);
-    max-width: 960px;
-  }
-}
-
+//// Classic:
+//@media screen and (min-width: 480px) and (max-width: 960px) {
+//  #navigation {
+//    @include flex-flow(row wrap);
+//  }
+//}
+//
+//// HD ready and more:
+//@media screen and (min-width: 961px) {
+//  #navigation {
+//    @include flex-flow(row wrap);
+//    max-width: 960px;
+//  }
+//}

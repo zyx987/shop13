@@ -1,0 +1,151 @@
+// Navigation Bar
+@import 'colors.scss';
+@import 'mixins.scss';
+
+#navigation {
+  width: 100%;
+  nav {
+    text-align: left;
+    margin-right: 40px;
+    font-size: 100%;
+    height: 50px;
+    ul {
+      background: $shop13-lightgray;
+      padding: 0 20px;
+      list-style: none;
+      position: relative;
+      display: inline-block;
+      margin: 0;
+      ul {
+        display: none;
+        background: $shop13-lightgreen;
+        padding: 0;
+        position: absolute;
+        top: 100%;
+        li {
+          float: none;
+          position: relative;
+          a {
+            padding: 5px 20px;
+            color: $font-color;
+            &:hover {
+              background: $shop13-brown;
+            }
+          }
+        }
+        ul {
+          position: absolute;
+          left: 100%;
+          top: 0;
+        }
+      }
+      li {
+        float: left;
+        //&:last-of-type {
+        //  float: right;
+        //  overflow: hidden;
+        //}
+        &:hover {
+          background: $shop13-brown;
+          > ul {
+            display: block;
+          }
+          a {
+            color: $font-color;
+          }
+        }
+        a {
+          display: block;
+          padding: 10px 20px;
+          color: $navigation-font;
+          text-decoration: none;
+        }
+      }
+      &:after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+    }
+  }
+}
+
+#navigation-side {
+
+overflow-y: scroll;
+  nav {
+    background-color: $shop13-brown;
+    position: absolute;
+    top: 50px;
+    left: -75%;
+    width: 75%;
+    text-align: left;
+    margin-right: 40px;
+    font-size: 100%;
+    overflow-y: scroll;
+    //-webkit-transition: -webkit-transform 0.6s ease;
+    //-moz-transition: -moz-transform 0.6s ease;
+    //transition: transform 0.6s ease;
+    //-webkit-transform: translateX(0);
+    //-moz-transform: translateX(0);
+    //transform: translateX(0);
+    @include transition(transform, 0.6s ease);
+    @include transform(translateX(0));
+    ul {
+      padding: 0 20px;
+      list-style: none;
+      margin: 0;
+      li {
+        a {
+          display: block;
+          padding: 10px 20px;
+          color: black;
+          text-decoration: none;
+        }
+      }
+      ul {
+        text-align: right;
+        background: $shop13-lightgreen;
+        margin-left: 50%;
+        position: relative;
+        top: -40px;
+        li {
+          a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            &:active {
+              background-color: $shop13-brown;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.side-menu {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+}
+
+// Mobile / Tablet
+@media screen and (max-width: 768px) {
+  #navigation {
+    display: none;
+  }
+}
+
+// Classic
+@media screen and (min-width: 768px) {
+  #navigation-side {
+    display: none;
+  }
+  .side-menu {
+    display: none;
+  }
+}
+

@@ -22,13 +22,17 @@
         'productsController',
         'homeController',
         'searchController',
+        'checkoutController',
         'productService',
         'cartService',
         'restService',
         'searchService',
+        'clientVendorService',
         'productDirective',
         'addButtonDirective',
         'removeButtonDirective',
+        'checkoutButtonDirective',
+        'sideMenuDirective',
         'helpers',
         'shop13Filters'
     ]);
@@ -43,6 +47,7 @@
 
             $urlRouterProviderRef = $urlRouterProvider;
             $stateProviderRef = $stateProvider;
+            // This did not work correctly, made some errors in api calls:
             //$locationProvider.html5Mode({enabled: true, requireBase: false});
         }
     );
@@ -88,6 +93,14 @@
                 "templateUrl": "templates/tmp.search.html",
                 "controller": 'SearchController',
                 "controllerAs": 'search'
+            });
+
+            /** create search route */
+            $stateProviderRef.state('checkout', {
+                "url": "/checkout",
+                "templateUrl": "templates/tmp.checkout.html",
+                "controller": 'CheckoutController',
+                "controllerAs": 'checkout'
             });
 
             /** start application at home */

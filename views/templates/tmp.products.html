@@ -1,5 +1,26 @@
-<div ng-repeat="product in vm.products">
+<form name="orderProducts">
+    <label>
+        <input type="radio" ng-model="vm.order" value="">
+        Standard
+    </label><br/>
+    <label>
+        <input type="radio" ng-model="vm.order" value="price">
+        Price ascending
+    </label><br/>
+    <label>
+        <input type="radio" ng-model="vm.order" value="-price">
+        Price descending
+    </label><br/>
+    <label>
+        <input type="radio" ng-model="vm.order" value="brand">
+        Brand
+    </label><br/>
+    <label>
+        <input type="radio" ng-model="vm.order" value="-brand">
+        Brand reverse
+    </label><br/>
+</form>
+<div ng-repeat="product in vm.products | orderBy: (vm.order)">
     <product-view ctrl-model="product"
-                  cart="false"
                   cart-quantity="quantity"></product-view>
 </div>

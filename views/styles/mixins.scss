@@ -41,3 +41,22 @@
   -moz-justify-content: $value;
   justify-content: $value;
 }
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+  -moz-transform: $value;
+  -ms-transform: $value;
+  -o-transform: $value;
+  transform: $value;
+}
+
+@mixin transition($transition, $value) {
+  @if $transition == transform {
+    -webkit-transition: -webkit-transform $value;
+    -moz-transition: -moz-transform $value;
+    -ms-transition: -ms-transform $value;
+    -o-transition: -o-transform $value;
+    transition: transform $value;
+  }
+}
+

@@ -23,6 +23,7 @@
             vm.results = productService.all;
             productService.update();
 
+            // Without this, the search view isn't updated
             $scope.$watch(
                 function (scope) {
                     return (searchService.results);

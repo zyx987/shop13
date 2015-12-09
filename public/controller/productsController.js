@@ -20,6 +20,7 @@
             /** View Model */
             var vm = this;
             vm.products = [];
+            vm.order = '';
             productService.update(function (products) {
                 vm.products = products;
             });
