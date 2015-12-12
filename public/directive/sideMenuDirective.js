@@ -17,20 +17,19 @@
 
             return {
                 restrict: 'E',
-                template: '<div class="side-menu">Side Menu</div>',
+                templateUrl: 'templates/tmp.sidemenu.html',
                 link: function (scope, element, attrs) {
-                    element.on('click', function (e) {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        // side menu aufklappen
+                    element.children().on('click', function (e) {
                         if (dir === 'open') {
-                            element.parent().find('nav').css( clientVendor.prefix.css + "transform", "translateX(100%)" );
+                            // open side menu
+                            element.children().css( clientVendor.prefix.css + "transform", "translateX(100%)" );
                             dir = 'close';
                         } else if (dir === 'close') {
-                            element.parent().find('nav').css( clientVendor.prefix.css + "transform", "translateX(0)" );
+                            // close side menu
+                            element.children().css( clientVendor.prefix.css + "transform", "translateX(0)" );
                             dir = 'open';
                         }
-                    });
+                    })
                 }
             };
         }

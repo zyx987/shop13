@@ -1,4 +1,4 @@
-/* Compiled: rene.ulrich | 2015-12-09 19:17:27 */
+/* Compiled: rene.ulrich | 2015-12-12 13:50:31 */
 
 #navigation {
   width: 100%;
@@ -78,19 +78,29 @@
 }
 
 #navigation-side {
+  background-color: #aa863a;
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  text-align: left;
+  margin-right: 40px;
+  font-size: 100%;
+  z-index: 100;
+  -webkit-transition: -webkit-transform 0.6s ease;
+  -moz-transition: -moz-transform 0.6s ease;
+  -ms-transition: -ms-transform 0.6s ease;
+  -o-transition: -o-transform 0.6s ease;
+  transition: transform 0.6s ease;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
   overflow-y: scroll;
 }
 
 #navigation-side nav {
-  background-color: #aa863a;
-  position: absolute;
-  top: 50px;
-  left: -75%;
-  width: 75%;
-  text-align: left;
-  margin-right: 40px;
-  font-size: 100%;
-  overflow-y: scroll;
   -webkit-transition: -webkit-transform 0.6s ease;
   -moz-transition: -moz-transform 0.6s ease;
   -ms-transition: -ms-transform 0.6s ease;
@@ -114,17 +124,15 @@
   padding: 10px 20px;
   color: black;
   text-decoration: none;
+  border-bottom: solid 1px black;
 }
 
 #navigation-side nav ul ul {
   text-align: right;
-  background: #729f98;
-  margin-left: 50%;
-  position: relative;
-  top: -40px;
 }
 
 #navigation-side nav ul ul li a {
+  border-bottom: solid 1px white;
   display: block;
   padding: 10px 20px;
   color: white;
@@ -140,6 +148,19 @@
   left: 0;
   top: 0;
   display: block;
+  width: 50%;
+  height: 50px;
+  background: transparent url(/images/menu.jpg) no-repeat;
+  -webkit-transition: -webkit-transform 0.6s ease;
+  -moz-transition: -moz-transform 0.6s ease;
+  -ms-transition: -ms-transform 0.6s ease;
+  -o-transition: -o-transform 0.6s ease;
+  transition: transform 0.6s ease;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
 }
 
 @media screen and (max-width: 768px) {

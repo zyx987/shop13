@@ -41,10 +41,6 @@
       }
       li {
         float: left;
-        //&:last-of-type {
-        //  float: right;
-        //  overflow: hidden;
-        //}
         &:hover {
           background: $shop13-brown;
           > ul {
@@ -71,24 +67,19 @@
 }
 
 #navigation-side {
-
+  background-color: $shop13-brown;
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  text-align: left;
+  margin-right: 40px;
+  font-size: 100%;
+  z-index: 100;
+  @include transition(transform, 0.6s ease);
+  @include transform(translateX(0));
 overflow-y: scroll;
   nav {
-    background-color: $shop13-brown;
-    position: absolute;
-    top: 50px;
-    left: -75%;
-    width: 75%;
-    text-align: left;
-    margin-right: 40px;
-    font-size: 100%;
-    overflow-y: scroll;
-    //-webkit-transition: -webkit-transform 0.6s ease;
-    //-moz-transition: -moz-transform 0.6s ease;
-    //transition: transform 0.6s ease;
-    //-webkit-transform: translateX(0);
-    //-moz-transform: translateX(0);
-    //transform: translateX(0);
     @include transition(transform, 0.6s ease);
     @include transform(translateX(0));
     ul {
@@ -101,16 +92,14 @@ overflow-y: scroll;
           padding: 10px 20px;
           color: black;
           text-decoration: none;
+          border-bottom: solid 1px black;
         }
       }
       ul {
         text-align: right;
-        background: $shop13-lightgreen;
-        margin-left: 50%;
-        position: relative;
-        top: -40px;
         li {
           a {
+            border-bottom: solid 1px white;
             display: block;
             padding: 10px 20px;
             color: white;
@@ -130,6 +119,11 @@ overflow-y: scroll;
   left: 0;
   top: 0;
   display: block;
+  width: 50%;
+  height: 50px;
+  background: transparent url(/images/menu.jpg) no-repeat;
+  @include transition(transform, 0.6s ease);
+  @include transform(translateX(0));
 }
 
 // Mobile / Tablet

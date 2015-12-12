@@ -1,0 +1,29 @@
+<div class="side-menu"></div>
+<div id="navigation-side">
+    <nav>
+        <ul>
+            <li><a ui-sref="cart"
+                   ng-bind="'Cart [ ' + shop13.cart.quantity.inCart + ' ] [ ' + (shop13.cart.quantity.totalPrice | number:2) + ' CHF ]'"></a>
+            </li>
+            <li><a ui-sref="products">products</a></li>
+            <li ng-repeat="entry in shop13.products.tree">
+                <a ui-sref="{{entry.category}}"
+                   ng-bind="entry.category"></a>
+                <ul>
+                    <li ng-repeat="sub in entry.subcategories">
+                        <a ui-sref="{{sub}}"
+                           ng-bind="sub"></a>
+                    </li>
+                </ul>
+            </li>
+            <li><a>brands</a>
+                <ul>
+                    <li ng-repeat="brand in shop13.products.brands | orderBy: 'name' as filtered track by brand.name">
+                        <a ui-sref="{{brand.name}}"
+                           ng-bind="brand.name + ' [ ' + brand.quantity + ' ]'"></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
