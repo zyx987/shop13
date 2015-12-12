@@ -1,18 +1,10 @@
 @import 'colors.scss';
 @import 'mixins.scss';
 @import 'navigation.scss';
-
-$font-stack: 'Oxygen', Helvetica, sans-serif;
-$font-size-normal: 1.1rem;
-$font-size-small: 0.8rem;
+@import 'product.scss';
 
 //urls
 $background_img: url(/images/backgound.jpg);
-
-@font-face {
-  font-family: Oxygen;
-  src: url(/fonts/oxygen.woff2) format('woff2')
-}
 
 body {
   margin: 0;
@@ -111,40 +103,7 @@ header {
   padding-right: 20px;
 }
 
-.product-item {
-  @include flex-grow(0);
-  position: relative;
-  background-color: $shop13-product-background;
-  min-height: 300px;
-  width: 300px;
-  margin: 1rem 0 0 1rem;
-  .product-item-description {
-    max-height: 0;
-    overflow: hidden;
-    position: absolute;
-    bottom: 30px;
-    max-width: 300px;
-    @include transition(max-height, 0.15s ease-out);
-  }
-  &:hover .product-item-description {
-    max-height: 200px;
-    @include transition(max-height, 0.25s ease-in);
-  }
-  .add-button {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-  }
-  .remove-button {
-    position: absolute;
-    bottom: 10px;
-    right: 10px
-  }
-}
 
-.product-title {
-  font-size: $font-size-normal;
-}
 
 .slide-item {
   height: 200px;

@@ -20,3 +20,14 @@ $shop13-lightgray: #f0eceb;
 $shop13-lightgreen: #729f98;
 $shop13-green: #283018;
 $shop13-brown: #aa863a;
+
+// Font
+@font-face {
+  font-family: Oxygen;
+  src: url(/fonts/oxygen.woff2) format('woff2')
+}
+
+$font-stack: 'Oxygen', Helvetica, sans-serif;
+$font-size-normal: 1.1rem;
+$font-size-small: 0.8rem;
+

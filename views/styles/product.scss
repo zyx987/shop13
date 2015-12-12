@@ -1,0 +1,102 @@
+// Product view styling
+@import 'colors.scss';
+@import 'mixins.scss';
+
+.product-item {
+  @include flex-grow(0);
+  position: relative;
+  background-color: $shop13-product-background;
+  min-height: 300px;
+  width: 300px;
+  margin: 20px 0 0 20px;
+  cursor: context-menu;
+  overflow: hidden;
+  > img {
+    //width: auto; /* or any custom size */
+    //height: 200px;
+    //align: center
+    //display: block;
+    //object-fit: contain;
+  }
+  .product-title {
+    font-size: $font-size-normal;
+    position: absolute;
+    bottom: 00px;
+    width: 280px;
+    padding: 0 10px;
+    height: 50px;
+    line-height: 50px;
+    @include flexbox();
+    @include flex-flow(row nowrap);
+    .product-title-item {
+      @include flex-grow(10);
+      &:last-of-type {
+        text-align: right;
+        @include flex-grow(0);
+      }
+    }
+  }
+  .product-item-description {
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    bottom: 50px;
+    width: 280px;
+    color: white;
+    padding: 10px 10px 0 10px;
+    background-color: $shop13-lightgreen;
+    @include transition(height, 0.15s ease-out);
+    .description {
+      position: relative;
+      top: 0;
+      height: 150px;
+      width: 280px;
+    }
+    .button-container {
+      overflow: hidden;
+      position: relative;
+      top: 0;
+      height: 50px;
+      width: 280px;
+      background-color: $shop13-lightgreen;
+      display: table-cell;
+      vertical-align: middle;
+      .quantity {
+        text-align: center;
+      }
+      button {
+        cursor: pointer;
+        display: block;
+        border: none;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+      }
+      button.add-button {
+        position: absolute;
+        background-color: green;
+        font-size: $font-size-normal;
+        bottom: 10px;
+        left: 0;
+        &:hover {
+          color: white;
+          background-color: $shop13-gray;
+        }
+      }
+      button.remove-button {
+        position: absolute;
+        background-color: red;
+        bottom: 10px;
+        right: 0;
+        &:hover {
+          color: white;
+          background-color: $shop13-gray;
+        }
+      }
+    }
+  }
+  &:hover .product-item-description {
+    height: 200px;
+    @include transition(height, 0.25s ease-in);
+  }
+}

@@ -1,9 +1,21 @@
 <div class="product-item">
-    <div class="product-title"
-         ng-bind="::ctrlModel.brand + ' - ' + ctrlModel.name + ' ' + (ctrlModel.price | number:2) + ' CHF'"></div>
-    <div ng-bind="quantity + ' in your cart'"></div>
-    <div class="product-item-description" ng-bind="::ctrlModel.short"></div>
-    <add-button product-id="ctrlModel.id"></add-button>
-    <remove-button ng-show="quantity"
-                   product-id="ctrlModel.id"></remove-button>
+    <img ng-src="{{::ctrlModel.picUrl}}" height="{{::imgHeight}}" width="{{::imgWidth}}" load-img/>
+    <div class="product-item-description">
+        <div class="description"
+             ng-bind="::ctrlModel.short"></div>
+        <div class="button-container">
+            <add-button product-id="ctrlModel.id"></add-button>
+            <div class="quantity"
+                 ng-bind="quantity + ' in your cart'"></div>
+            <remove-button ng-show="quantity"
+                           product-id="ctrlModel.id"></remove-button>
+        </div>
+    </div>
+    <div class="product-title">
+        <div class="product-title-item"
+             ng-bind="::(ctrlModel.brand | trim:12) + ' - ' + (ctrlModel.name | trim:10)">
+        </div>
+        <div class="product-title-item"
+             ng-bind="' ' + (ctrlModel.price | number:2) + ' CHF'"></div>
+    </div>
 </div>

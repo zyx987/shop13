@@ -20,7 +20,9 @@
                 restrict: 'AE',
                 scope: {
                     ctrlModel: '=',
-                    quantity: '='
+                    quantity: '=',
+                    imgHeight: '=',
+                    imgWidth: '='
                 },
                 link: function (scope, element, attrs) {
                     scope.quantity = cartService.getQuantity(scope.ctrlModel.id);
@@ -42,5 +44,29 @@
             }
         }
     );
+
+    app.directive('loadImg', function () {
+        return {
+            restrict: 'A',
+            link: function (scope, element, attrs) {
+                element.on('load', function () {
+                    var height = element[0].clientHeight;
+                    var width = element[0].clientWidth;
+                    var ratio = height/width;
+                    if (height > 200) {
+                        scope.imgHeight = '200px';
+                        scope.imgWidth = 200/height*width + 'px';
+                    } else if (width > 300) {
+                        scope.imgWidth = '300px';
+                        scope.imgHeight = 300/width*height + 'px';
+                    } else {
+                        scope.imgWidth = width;
+                        scope.imgHeight = height;
+                    }
+                    scope.$apply();
+                });
+            }
+        };
+    });
 
 })();
