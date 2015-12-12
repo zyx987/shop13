@@ -17,6 +17,10 @@
 
             return {
                 restrict: 'E',
+                scope: {
+                    menuTree: '=',
+                    cartInfo: '='
+                },
                 templateUrl: 'templates/tmp.sidemenu.html',
                 link: function (scope, element, attrs) {
                     element.children().on('click', function (e) {

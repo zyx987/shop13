@@ -24,7 +24,6 @@
 
             /** View Model */
             var vm = this;
-            vm.title = 'shop 13 \\m/ - source of pure tone';
             vm.products = productService;
             vm.cart = cartService;
             vm.search = '';

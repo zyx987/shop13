@@ -24,15 +24,20 @@
                 },
                 link: function (scope, element, attrs) {
                     scope.quantity = cartService.getQuantity(scope.ctrlModel.id);
-                    element.on('click', function (e) {
-                        if (element.hasClass('red')) {
-                            element.removeClass('red');
-                        } else {
-                            element.addClass('red');
-                        }
-                        e.stopPropagation();
-                        e.preventDefault();
-                    });
+                    //element.on('mouseenter', function (e) {
+                    //    if (!element.find('p').hasClass('product-item-description')) {
+                    //        element.find('p').addClass('product-item-description');
+                    //    }
+                    //    e.stopPropagation();
+                    //    e.preventDefault();
+                    //});
+                    //element.on('mouseleave', function (e) {
+                    //    if (element.find('p').hasClass('product-item-description')) {
+                    //        element.find('p').removeClass('product-item-description');
+                    //    }
+                    //    e.stopPropagation();
+                    //    e.preventDefault();
+                    //});
                 }
             }
         }

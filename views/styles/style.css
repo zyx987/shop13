@@ -1,6 +1,8 @@
-/* Compiled: rene.ulrich | 2015-12-12 13:50:31 */
+/* Compiled: rene.ulrich | 2015-12-12 15:26:30 */
 
 #navigation {
+  position: relative;
+  z-index: 999;
   width: 100%;
 }
 
@@ -87,6 +89,7 @@
   margin-right: 40px;
   font-size: 100%;
   z-index: 100;
+  height: 100%;
   -webkit-transition: -webkit-transform 0.6s ease;
   -moz-transition: -moz-transform 0.6s ease;
   -ms-transition: -ms-transform 0.6s ease;
@@ -98,19 +101,6 @@
   -o-transform: translateX(0);
   transform: translateX(0);
   overflow-y: scroll;
-}
-
-#navigation-side nav {
-  -webkit-transition: -webkit-transform 0.6s ease;
-  -moz-transition: -moz-transform 0.6s ease;
-  -ms-transition: -ms-transform 0.6s ease;
-  -o-transition: -o-transform 0.6s ease;
-  transition: transform 0.6s ease;
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -o-transform: translateX(0);
-  transform: translateX(0);
 }
 
 #navigation-side nav ul {
@@ -313,10 +303,45 @@ header {
   -webkit-flex-grow: 0;
   -moz-flex-grow: 0;
   flex-grow: 0;
+  position: relative;
   background-color: white;
   min-height: 300px;
-  max-width: 300px;
+  width: 300px;
   margin: 1rem 0 0 1rem;
+}
+
+.product-item .product-item-description {
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  bottom: 30px;
+  max-width: 300px;
+  -webkit-transition: max-height 0.15s ease-out;
+  -moz-transition: max-height 0.15s ease-out;
+  -ms-transition: max-height 0.15s ease-out;
+  -o-transition: max-height 0.15s ease-out;
+  transition: max-height 0.15s ease-out;
+}
+
+.product-item:hover .product-item-description {
+  max-height: 200px;
+  -webkit-transition: max-height 0.25s ease-in;
+  -moz-transition: max-height 0.25s ease-in;
+  -ms-transition: max-height 0.25s ease-in;
+  -o-transition: max-height 0.25s ease-in;
+  transition: max-height 0.25s ease-in;
+}
+
+.product-item .add-button {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.product-item .remove-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 
 .product-title {

@@ -57,6 +57,12 @@
     -ms-transition: -ms-transform $value;
     -o-transition: -o-transform $value;
     transition: transform $value;
+  } @else {
+    -webkit-transition: $transition $value;
+    -moz-transition: $transition $value;
+    -ms-transition: $transition $value;
+    -o-transition: $transition $value;
+    transition: $transition $value;
   }
 }
 

@@ -33,6 +33,7 @@
         'removeButtonDirective',
         'checkoutButtonDirective',
         'sideMenuDirective',
+        'classicMenuDirective',
         'helpers',
         'shop13Filters'
     ]);

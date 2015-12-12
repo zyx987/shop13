@@ -14,7 +14,7 @@
         function (cartService) {
             return {
                 restrict: 'E',
-                template: '<button>Add to cart</button>',
+                template: '<button class="add-button">Add to cart</button>',
                 scope: {
                     productId: '='
                 },

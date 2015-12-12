@@ -1,10 +1,6 @@
-<div class="side-menu"></div>
-<div id="navigation-side">
+<div id="navigation">
     <nav>
         <ul>
-            <li><a ui-sref="cart"
-                   ng-bind="'Cart [ ' + cartInfo.inCart + ' ] [ ' + (cartInfo.totalPrice | number:2) + ' CHF ]'"></a>
-            </li>
             <li><a ui-sref="products">products</a></li>
             <li ng-repeat="entry in menuTree.tree">
                 <a ui-sref="{{entry.category}}"
@@ -23,6 +19,9 @@
                            ng-bind="brand.name + ' [ ' + brand.quantity + ' ]'"></a>
                     </li>
                 </ul>
+            </li>
+            <li><a ui-sref="cart"
+                   ng-bind="'Cart [ ' + cartInfo.inCart + ' ] [ ' + (cartInfo.totalPrice | number:2) + ' CHF ]'"></a>
             </li>
         </ul>
     </nav>

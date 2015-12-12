@@ -17,7 +17,7 @@
         function (cartService) {
             return {
                 restrict: 'E',
-                template: '<button>Remove from cart</button>',
+                template: '<button class="remove-button">Remove from cart</button>',
                 scope: {
                     productId: '='
                 },
