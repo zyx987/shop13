@@ -11,12 +11,9 @@
   margin: 20px 0 0 20px;
   cursor: context-menu;
   overflow: hidden;
-  > img {
-    //width: auto; /* or any custom size */
-    //height: 200px;
-    //align: center
-    //display: block;
-    //object-fit: contain;
+  img {
+    margin: 50px 10px 10px 10px;
+    horiz-align: center;
   }
   .product-title {
     font-size: $font-size-normal;
@@ -45,7 +42,7 @@
     color: white;
     padding: 10px 10px 0 10px;
     background-color: $shop13-lightgreen;
-    @include transition(height, 0.15s ease-out);
+    @include transition(height, 0.4s ease-out);
     .description {
       position: relative;
       top: 0;
@@ -97,6 +94,6 @@
   }
   &:hover .product-item-description {
     height: 200px;
-    @include transition(height, 0.25s ease-in);
+    @include transition(height, 0.2s 0.3s ease-in);
   }
 }

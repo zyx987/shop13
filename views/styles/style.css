@@ -1,4 +1,4 @@
-/* Compiled: rene.ulrich | 2015-12-12 19:38:08 */
+/* Compiled: Rene.Jasmin | 2015-12-12 22:54:49 */
 
 @font-face {
   font-family: Oxygen;
@@ -197,6 +197,11 @@
   overflow: hidden;
 }
 
+.product-item img {
+  margin: 50px 10px 10px 10px;
+  horiz-align: center;
+}
+
 .product-item .product-title {
   font-size: 1.1rem;
   position: absolute;
@@ -240,11 +245,11 @@
   color: white;
   padding: 10px 10px 0 10px;
   background-color: #729f98;
-  -webkit-transition: height 0.15s ease-out;
-  -moz-transition: height 0.15s ease-out;
-  -ms-transition: height 0.15s ease-out;
-  -o-transition: height 0.15s ease-out;
-  transition: height 0.15s ease-out;
+  -webkit-transition: height 0.4s ease-out;
+  -moz-transition: height 0.4s ease-out;
+  -ms-transition: height 0.4s ease-out;
+  -o-transition: height 0.4s ease-out;
+  transition: height 0.4s ease-out;
 }
 
 .product-item .product-item-description .description {
@@ -305,11 +310,11 @@
 
 .product-item:hover .product-item-description {
   height: 200px;
-  -webkit-transition: height 0.25s ease-in;
-  -moz-transition: height 0.25s ease-in;
-  -ms-transition: height 0.25s ease-in;
-  -o-transition: height 0.25s ease-in;
-  transition: height 0.25s ease-in;
+  -webkit-transition: height 0.2s 0.3s ease-in;
+  -moz-transition: height 0.2s 0.3s ease-in;
+  -ms-transition: height 0.2s 0.3s ease-in;
+  -o-transition: height 0.2s 0.3s ease-in;
+  transition: height 0.2s 0.3s ease-in;
 }
 
 body {

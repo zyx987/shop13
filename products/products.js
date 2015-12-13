@@ -56,8 +56,8 @@ module.exports.products = [
         "subCategory": 'electric',
         "short": 'The Les Paul Standard Reissue stays true to the specs of this iconic instrument.',
         "description": 'none',
-        "color": 'Sun burst',
-        "picUrl": '/pics/guitars_100.jpg'
+        "color": 'Lemon burst',
+        "picUrl": '/pics/guitars_101.jpg'
     },
     {
         "id": 200,

@@ -1,5 +1,19 @@
 /**
  * Created by rene.ulrich on 30.09.2015.
+ *
+ * This is the final thesis of CAS FEE 2015 of Group 13 -> SHOP 13 \m/
+ * ===================================================================
+ *
+ * This is an e-shop application for guitar and related stuff:
+ * - The menu is generated according to database entries -> a request to 'api/categories'
+ *   will return the menu tree with categories and their corresponding subcategories (menu is two steps
+ *   deep). So if the shopkeeper / database maintenance clean up the database, unused (sub)categories won't
+ *   be displayed anymore automatically
+ * - JQUERY denied :) This application does not use Jquery (only jqlite from angularjs) just load libraries
+ *   you really need!
+ * -
+ *
+ *
  */
 
 (function () {

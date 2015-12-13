@@ -11,7 +11,7 @@
     var app = angular.module('productDirective', []);
 
     /**
-     *
+     * Product view directive
      * */
     app.directive('productView',
         function (cartService) {
@@ -45,6 +45,13 @@
         }
     );
 
+
+    /**
+     * This directive fits the product img in both dimensions into the product view
+     * html/css does not support this functionality as I know
+     * This is usefull that maybe the shopkeeper / database maintenance does not proper fit the pics in size
+     * Maybe it could be done in the database too with imagemagik or so...
+     * */
     app.directive('loadImg', function () {
         return {
             restrict: 'A',
@@ -52,16 +59,34 @@
                 element.on('load', function () {
                     var height = element[0].clientHeight;
                     var width = element[0].clientWidth;
-                    var ratio = height/width;
-                    if (height > 200) {
-                        scope.imgHeight = '200px';
-                        scope.imgWidth = 200/height*width + 'px';
-                    } else if (width > 300) {
-                        scope.imgWidth = '300px';
-                        scope.imgHeight = 300/width*height + 'px';
+                    var ratio = height / width;
+                    if (ratio < 0.643) {
+                        if (width > 280) {
+                            scope.imgWidth = '280px';
+                            scope.imgHeight = 280 / width * height + 'px';
+                        } else {
+                            scope.imgWidth = width;
+                            scope.imgHeight = height;
+                        }
+                    } else if (ratio < 1.556) {
+                        if (height > 180) {
+                            scope.imgHeight = '180px';
+                            scope.imgWidth = 180 / height * width + 'px';
+                        } else if (width > 280) {
+                            scope.imgWidth = '280px';
+                            scope.imgHeight = 280 / width * height + 'px';
+                        } else {
+                            scope.imgWidth = width;
+                            scope.imgHeight = height;
+                        }
                     } else {
-                        scope.imgWidth = width;
-                        scope.imgHeight = height;
+                        if (height > 180) {
+                            scope.imgHeight = '180px';
+                            scope.imgWidth = 180 / height * width + 'px';
+                        } else {
+                            scope.imgWidth = width;
+                            scope.imgHeight = height;
+                        }
                     }
                     scope.$apply();
                 });
