@@ -1,11 +1,28 @@
-<div ng-repeat="item in cart.cart.cart"
-     ng-show="cart.cart.cart.length">
-    <product-view ctrl-model="item.product"
-                  cart-quantity="cart.cart.quantity.inCart"></product-view>
+<div ng-show="cart.cart.cart.length"
+     class="checkout">
+    <div class="checkout-summary">
+        <div class="checkout-summary-item">Cart summary:</div>
+    </div>
+    <div class="checkout-summary">
+        <div class="checkout-summary-item">Product Total:</div>
+        <div class="checkout-summary-item" ng-bind="(cart.cart.quantity.totalProducts | number:2) + ' CHF'"></div>
+    </div>
+    <div class="checkout-summary">
+        <div class="checkout-summary-item">Estimated shipping:</div>
+        <div class="checkout-summary-item" ng-bind="(cart.cart.quantity.shipping | number:2) + ' CHF'"></div>
+    </div>
+    <div class="checkout-summary">
+        <div class="checkout-summary-item">Total:</div>
+        <div class="checkout-summary-item" ng-bind="(cart.cart.quantity.totalPrice | number:2) + ' CHF'"></div>
+    </div>
+    <checkout-button></checkout-button>
 </div>
 
-<div ng-show="cart.cart.cart.length">
-    <checkout-button></checkout-button>
+<div ng-repeat="item in cart.cart.cart"
+     ng-show="cart.cart.cart.length"
+     class="product-item">
+    <product-view ctrl-model="item.product"
+                  cart-quantity="cart.cart.quantity.inCart"></product-view>
 </div>
 
 <div ng-show="!cart.cart.cart.length">

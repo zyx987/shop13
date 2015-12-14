@@ -2,13 +2,23 @@
 @import 'colors.scss';
 @import 'mixins.scss';
 
+.product-order {
+  @include flex-grow(1);
+  margin-left: 60px;
+  min-width: 100%;
+  form {
+    @include flexbox();
+    @include flex-flow(column nowrap);
+  }
+}
+
 .product-item {
   @include flex-grow(0);
   position: relative;
   background-color: $shop13-product-background;
   min-height: 300px;
   width: 300px;
-  margin: 20px 0 0 20px;
+  margin: 20px;
   cursor: context-menu;
   overflow: hidden;
   img {
@@ -95,5 +105,24 @@
   &:hover .product-item-description {
     height: 200px;
     @include transition(height, 0.2s 0.3s ease-in);
+  }
+}
+
+// Mobile / Tablet
+@media screen and (max-width: 768px) {
+  .product-order {
+    form {
+      @include flex-flow(column nowrap);
+      text-align: left;
+    }
+  }
+}
+
+// Classic
+@media screen and (min-width: 768px) {
+  .product-order {
+    form {
+      @include flex-flow(row wrap);
+    }
   }
 }

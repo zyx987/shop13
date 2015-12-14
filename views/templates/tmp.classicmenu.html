@@ -12,7 +12,7 @@
                     </li>
                 </ul>
             </li>
-            <li><a>brands</a>
+            <li><a ui-sref="products">brands</a>
                 <ul>
                     <li ng-repeat="brand in menuTree.brands | orderBy: 'name' as filtered track by brand.name">
                         <a ui-sref="{{brand.name}}"

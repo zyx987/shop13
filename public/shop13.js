@@ -1,5 +1,5 @@
 /**
- * Created by rene.ulrich on 30.09.2015.
+ * Created by Rene Ulrich on 30.09.2015.
  *
  * This is the final thesis of CAS FEE 2015 of Group 13 -> SHOP 13 \m/
  * ===================================================================

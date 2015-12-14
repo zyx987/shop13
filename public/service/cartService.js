@@ -24,7 +24,9 @@
             var cart = [],
                 quantity = {
                     inCart: 0,
-                    totalPrice: 0
+                    totalPrice: 0,
+                    totalProducts: 0,
+                    shipping: 0
                 },
                 createCart = function (ids) {
                     if (ids) {
@@ -89,10 +91,16 @@
             var count = function () {
                 quantity.inCart = 0;
                 quantity.totalPrice = 0;
+                quantity.totalProducts = 0;
+                quantity.shipping = 0;
                 cart.forEach(function (item) {
                     quantity.inCart += item.quantity;
-                    quantity.totalPrice += (item.quantity * item.product.price);
+                    quantity.totalProducts += (item.quantity * item.product.price);
                 });
+                if (quantity.totalProducts < 300) {
+                    quantity.shipping = 18;
+                }
+                quantity.totalPrice= quantity.totalProducts + quantity.shipping;
             };
 
             return {

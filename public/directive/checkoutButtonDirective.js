@@ -14,7 +14,7 @@
         function ($state) {
             return {
                 restrict: 'E',
-                template: '<button>Check out!</button>',
+                template: '<button class="checkout-button">Check out!</button>',
                 scope: {},
                 link: function (scope, element, attrs) {
                     element.on('click', function (e) {

@@ -1,0 +1,43 @@
+// Checkout view styling
+@import 'colors.scss';
+@import 'mixins.scss';
+
+.checkout {
+  @include flex-grow(0);
+  padding-top: 30px;
+  position: relative;
+  width: 100%;
+  .checkout-button {
+    margin: auto;
+    cursor: pointer;
+    display: block;
+    border: none;
+    height: 30px;
+    width: 80%;
+    background-color: $shop13-lightgreen;
+    font-size: $font-size-normal;
+    color: white;
+    &:hover {
+      background-color: $shop13-brown;
+    }
+  }
+  .checkout-summary {
+    @include flexbox();
+    @include flex-flow(row nowrap);
+    margin: 10px auto;
+    width: 300px;
+    .checkout-summary-item {
+      @include flex-grow(10);
+      &:last-of-type {
+        text-align: right;
+        @include flex-grow(0);
+      }
+    }
+    &:first-of-type {
+      font-weight: bold;
+    }
+    &:last-of-type {
+      font-weight: bold;
+    }
+  }
+}
