@@ -47,6 +47,7 @@
         'removeButtonDirective',
         'checkoutButtonDirective',
         'sideMenuDirective',
+        'slideDirective',
         'classicMenuDirective',
         'helpers',
         'shop13Filters'

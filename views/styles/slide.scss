@@ -1,0 +1,59 @@
+// Checkout view styling
+@import 'colors.scss';
+@import 'mixins.scss';
+
+.slide-item {
+  @include flex-grow(10);
+  display: inherit;
+  height: 400px;
+  width: 100%;
+}
+
+.custom-indicator {
+  text-align: center;
+  cursor: pointer;
+  padding-top: 5px;
+  color: $shop13-brown;
+  font-size: 36px;
+}
+
+div.custom-indicator span {
+  transition: all 0.2s ease-in;
+  &.active {
+    color: $shop13-lightgreen !important;
+  }
+}
+
+.slide-container {
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+  img {
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+  }
+}
+
+// Mobile / Tablet
+@media screen and (max-width: 768px) {
+
+}
+
+// Classic
+@media screen and (min-width: 768px) {
+  .slide-item {
+    height: 700px;
+  }
+  .slide-container {
+    height: 800px;
+  }
+}

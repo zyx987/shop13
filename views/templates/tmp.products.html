@@ -1,45 +1,47 @@
-<div class="product-order">
-    <form name="orderProducts">
-        <label>Order: &nbsp;&nbsp;</label>
-        <label>
-            <input type="radio"
-                   ng-model="vm.order"
-                   value=""
-                   class="regular-radio">
-            Standard
-        </label>
-        <label>
-            <input type="radio"
-                   ng-model="vm.order"
-                   value="price"
-                   class="regular-radio">
-            Price ascending
-        </label>
-        <label>
-            <input type="radio"
-                   ng-model="vm.order"
-                   value="-price"
-                   class="regular-radio">
-            Price descending
-        </label>
-        <label>
-            <input type="radio"
-                   ng-model="vm.order"
-                   value="brand"
-                   class="regular-radio">
-            Brand
-        </label>
-        <label>
-            <input type="radio"
-                   ng-model="vm.order"
-                   value="-brand"
-                   class="regular-radio">
-            Brand reverse
-        </label>
-    </form>
-</div>
-<div ng-repeat="product in vm.products | orderBy: (vm.order)"
-     class="product-item">
-    <product-view ctrl-model="product"
-                  cart-quantity="quantity"></product-view>
+<div class="content">
+    <div class="product-order">
+        <form name="orderProducts">
+            <label>Order: &nbsp;&nbsp;</label>
+            <label>
+                <input type="radio"
+                       ng-model="vm.order"
+                       value=""
+                       class="regular-radio">
+                Standard
+            </label>
+            <label>
+                <input type="radio"
+                       ng-model="vm.order"
+                       value="price"
+                       class="regular-radio">
+                Price ascending
+            </label>
+            <label>
+                <input type="radio"
+                       ng-model="vm.order"
+                       value="-price"
+                       class="regular-radio">
+                Price descending
+            </label>
+            <label>
+                <input type="radio"
+                       ng-model="vm.order"
+                       value="brand"
+                       class="regular-radio">
+                Brand
+            </label>
+            <label>
+                <input type="radio"
+                       ng-model="vm.order"
+                       value="-brand"
+                       class="regular-radio">
+                Brand reverse
+            </label>
+        </form>
+    </div>
+    <div ng-repeat="product in vm.products | orderBy: (vm.order)"
+         class="product-item">
+        <product-view ctrl-model="product"
+                      cart-quantity="quantity"></product-view>
+    </div>
 </div>

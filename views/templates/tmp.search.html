@@ -1,7 +1,9 @@
-<div ng-repeat="product in search.results"
-     class="product-item">
-    <product-view ctrl-model="product"
-                  cart-quantity="quantity"></product-view>
-</div>
+<div class="content">
+    <div ng-repeat="product in search.results"
+         class="product-item">
+        <product-view ctrl-model="product"
+                      cart-quantity="quantity"></product-view>
+    </div>
 
-<div ng-show="!search.results.length">No search results found</div>
+    <div ng-show="!search.results.length">No search results found</div>
+</div>

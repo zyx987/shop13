@@ -1,4 +1,4 @@
-/* Compiled: Rene.Jasmin | 2015-12-14 15:52:44 */
+/* Compiled: Rene.Jasmin | 2015-12-14 21:47:55 */
 
 @font-face {
   font-family: Oxygen;
@@ -429,9 +429,74 @@
   font-weight: bold;
 }
 
+@font-face {
+  font-family: Oxygen;
+  src: url(/fonts/oxygen.woff2) format("woff2");
+}
+
+.slide-item {
+  -webkit-box-flex: 10;
+  -webkit-flex-grow: 10;
+  -moz-flex-grow: 10;
+  flex-grow: 10;
+  display: inherit;
+  height: 400px;
+  width: 100%;
+}
+
+.custom-indicator {
+  text-align: center;
+  cursor: pointer;
+  padding-top: 5px;
+  color: #aa863a;
+  font-size: 36px;
+}
+
+div.custom-indicator span {
+  transition: all 0.2s ease-in;
+}
+
+div.custom-indicator span.active {
+  color: #729f98 !important;
+}
+
+.slide-container {
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide-container img {
+  min-height: 100%;
+  min-width: 100%;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  display: block;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 768px) {
+  .slide-item {
+    height: 700px;
+  }
+  .slide-container {
+    height: 800px;
+  }
+}
+
 body {
   margin: 0;
   font: 100% "Oxygen", Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 header {
@@ -472,7 +537,7 @@ header {
   font-size: 1.7rem;
 }
 
-#content {
+.content {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -552,26 +617,6 @@ header {
   justify-content: center;
   align-items: center;
   padding-right: 20px;
-}
-
-.slide-item {
-  height: 200px;
-}
-
-.custom-indicator {
-  text-align: center;
-  cursor: pointer;
-  padding-top: 5px;
-  color: #666666;
-  font-size: 36px;
-}
-
-div.custom-indicator span {
-  transition: all 0.2s ease-in;
-}
-
-div.custom-indicator span.active {
-  color: white !important;
 }
 
 @media screen and (max-width: 768px) {

@@ -1,0 +1,10 @@
+<div class="slide-container"
+     ui-sref="{{slideModel.goTo}}">
+    <img ng-srcset="{{slideModel.imgS}} 400w,
+                    {{slideModel.imgM}} 800w,
+                    {{slideModel.imgL}} 1400w"
+         sizes="(max-width: 480px) 75vw,
+                (min-width: 960px) 95vw,
+                60vw"
+         ng-src="{{slideModel.imgS}}">
+</div>

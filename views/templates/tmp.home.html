@@ -1,13 +1,10 @@
-<div>{{home.title}}</div>
-
 <div>
     <ul rn-carousel class="slide-item"
         rn-carousel-index="home.index"
-        rn-carousel-auto-slide="5"
-        class="">
+        rn-carousel-auto-slide="5">
         <li ng-repeat="slide in home.slides track by slide.id"
             ng-class="'id-' + slide.id">
-            <div ng-bind="slide.url"></div>
+            <shop13-slide slide-model="slide.model"></shop13-slide>
         </li>
     </ul>
     <div class="custom-indicator">

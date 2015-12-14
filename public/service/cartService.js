@@ -97,7 +97,7 @@
                     quantity.inCart += item.quantity;
                     quantity.totalProducts += (item.quantity * item.product.price);
                 });
-                if (quantity.totalProducts < 300) {
+                if (quantity.totalProducts < 300 && quantity.inCart) {
                     quantity.shipping = 18;
                 }
                 quantity.totalPrice= quantity.totalProducts + quantity.shipping;

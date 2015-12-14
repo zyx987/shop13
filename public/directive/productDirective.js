@@ -52,37 +52,45 @@
      * This is usefull that maybe the shopkeeper / database maintenance does not proper fit the pics in size
      * Maybe it could be done in the database too with imagemagik or so...
      * */
-    app.directive('loadImg', function () {
+    app.directive('fitImg', function () {
         return {
             restrict: 'A',
             link: function (scope, element, attrs) {
                 element.on('load', function () {
+                    var w = window.innerWidth;
                     var height = element[0].clientHeight;
                     var width = element[0].clientWidth;
                     var ratio = height / width;
+                    var fitHeight = Number(attrs.fitHeight);
+                    var fitWidth = 280;
+                    if (Number(attrs.fitWidth)) {
+                        fitWidth = Number(attrs.fitWidth);
+                    } else if (attrs.fitWidth === 'client'){
+                        fitWidth = w;
+                    }
                     if (ratio < 0.643) {
-                        if (width > 280) {
-                            scope.imgWidth = '280px';
-                            scope.imgHeight = 280 / width * height + 'px';
+                        if (width > fitWidth) {
+                            scope.imgWidth = fitWidth;
+                            scope.imgHeight = fitWidth / width * height;
                         } else {
                             scope.imgWidth = width;
                             scope.imgHeight = height;
                         }
                     } else if (ratio < 1.556) {
-                        if (height > 180) {
-                            scope.imgHeight = '180px';
-                            scope.imgWidth = 180 / height * width + 'px';
-                        } else if (width > 280) {
-                            scope.imgWidth = '280px';
-                            scope.imgHeight = 280 / width * height + 'px';
+                        if (height > fitHeight) {
+                            scope.imgHeight = fitHeight;
+                            scope.imgWidth = fitHeight / height * width;
+                        } else if (width > fitWidth) {
+                            scope.imgWidth = fitWidth;
+                            scope.imgHeight = fitWidth / width * height;
                         } else {
                             scope.imgWidth = width;
                             scope.imgHeight = height;
                         }
                     } else {
-                        if (height > 180) {
-                            scope.imgHeight = '180px';
-                            scope.imgWidth = 180 / height * width + 'px';
+                        if (height > fitHeight) {
+                            scope.imgHeight = fitHeight;
+                            scope.imgWidth = fitHeight / height * width;
                         } else {
                             scope.imgWidth = width;
                             scope.imgHeight = height;

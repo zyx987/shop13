@@ -15,31 +15,45 @@
      * */
     app.controller('HomeController',
 
-        function (productService) {
+        function ($state) {
 
             /** View Model */
             var vm = this;
-            vm.title = 'Hello Home Controller';
             vm.slides = [];
             vm.index = 0;
 
             function getSlide(target) {
                 var i = target.length;
-                var url = '';
+                var model = {};
                 switch (i) {
                     case 0:
-                        url = 'slide 1';
+                        model = {
+                            goTo: 'effects',
+                            imgS: 'carousel/mxr_s.jpg',
+                            imgM: 'carousel/mxr_s.jpg',
+                            imgL: 'carousel/mxr_m.jpg'
+                        };
                         break;
                     case 1:
-                        url = 'slide 2';
+                        model = {
+                            goTo: 'amps',
+                            imgS: 'carousel/marshall_s.jpg',
+                            imgM: 'carousel/marshall_s.jpg',
+                            imgL: 'carousel/marshall_m.jpg'
+                        };
                         break;
                     case 2:
-                        url = 'slide 3';
+                        model = {
+                            goTo: 'guitars',
+                            imgS: 'carousel/fender_s.jpg',
+                            imgM: 'carousel/fender_s.jpg',
+                            imgL: 'carousel/fender_m.jpg'
+                        };
                         break;
                 }
                 return {
                     id: (i + 1),
-                    url: url
+                    model: model
                 };
             }
 
@@ -52,9 +66,7 @@
                     addSlide(target);
                 }
             }
-
             addSlides(vm.slides, 3);
-
         }
     );
 
