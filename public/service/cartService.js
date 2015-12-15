@@ -28,6 +28,14 @@
                     totalProducts: 0,
                     shipping: 0
                 },
+                checkoutData = {
+                    name: '',
+                    address: '',
+                    postalCode: '',
+                    city: '',
+                    country: '',
+                    payment: ''
+                },
                 createCart = function (ids) {
                     if (ids) {
                         productService.getByIds(ids, function (products) {
@@ -85,6 +93,16 @@
                         }
                     });
                     return quantity;
+                },
+                checkoutCart = function () {
+                    // ToDo:
+                    // Put cart and user data to api
+                    // In callback:
+                    cart.length = 0;
+                    Object.keys(checkoutData).forEach(function (key) {
+                        checkoutData[key] = '';
+                    });
+                    count();
                 };
 
             /** Private data and functions */
@@ -100,16 +118,18 @@
                 if (quantity.totalProducts < 300 && quantity.inCart) {
                     quantity.shipping = 18;
                 }
-                quantity.totalPrice= quantity.totalProducts + quantity.shipping;
+                quantity.totalPrice = quantity.totalProducts + quantity.shipping;
             };
 
             return {
                 cart: cart,
                 quantity: quantity,
+                checkoutData: checkoutData,
                 create: createCart,
                 add: add,
                 remove: remove,
-                getQuantity: getQuantity
+                getQuantity: getQuantity,
+                checkout: checkoutCart
             };
         }
     );

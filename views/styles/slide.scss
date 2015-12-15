@@ -10,6 +10,8 @@
 }
 
 .custom-indicator {
+  position: relative;
+  top: -80px;
   text-align: center;
   cursor: pointer;
   padding-top: 5px;
@@ -28,6 +30,7 @@ div.custom-indicator span {
   height: 500px;
   width: 100%;
   overflow: hidden;
+  cursor: pointer;
   img {
     min-height: 100%;
     min-width: 100%;

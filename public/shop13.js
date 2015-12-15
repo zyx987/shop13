@@ -11,7 +11,10 @@
  *   be displayed anymore automatically
  * - JQUERY denied :) This application does not use Jquery (only jqlite from angularjs) just load libraries
  *   you really need!
- * -
+ * - Cool / easy checkout with no unnecessary stuff
+ * - Shopping-cart with all info's including shipping
+ * - Responsive design for desktop / mobile
+ * - Quick search function
  *
  *
  */
@@ -117,6 +120,12 @@
                 "templateUrl": "templates/tmp.checkout.html",
                 "controller": 'CheckoutController',
                 "controllerAs": 'checkout'
+            });
+
+            /** create search route */
+            $stateProviderRef.state('about', {
+                "url": "/about",
+                "templateUrl": "templates/tmp.about.html"
             });
 
             /** start application at home */

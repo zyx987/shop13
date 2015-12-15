@@ -16,12 +16,49 @@
     app.controller('CheckoutController',
 
         function (productService,
-                  cartService) {
+                  cartService,
+                  $scope,
+                  $state) {
 
             /** View Model */
             var vm = this;
-            vm.hello = 'Hello Checkout!';
-            vm.products = cartService.cart;
+            vm.cart = cartService.cart;
+            vm.quantity = cartService.quantity;
+            vm.checkoutData = cartService.checkoutData;
+            vm.complete = false;
+
+            vm.checkout = function () {
+                cartService.checkout();
+            };
+
+            /** Watch checkout data if complete */
+            $scope.$watch(
+                function () {
+                    return (vm.checkoutData);
+                },
+                function (newValue, oldValue) {
+                    var countTrue = 0;
+                    var countAll = 0;
+                    Object.keys(vm.checkoutData).forEach(function (key) {
+                        if (vm.checkoutData[key]) {
+                            countTrue = countTrue + 1;
+                        }
+                        countAll = countAll + 1;
+                    });
+                    vm.complete = (countTrue >= countAll);
+                    goCart();
+                },
+                true
+            );
+
+            /** Leave checkout view at construction time, if cart is empty
+             *  this could happen if someone type in checkout url in browser */
+            function goCart () {
+                if (!vm.cart.length) {
+                    $state.go('cart');
+                }
+            }
+            goCart();
         }
     );
 

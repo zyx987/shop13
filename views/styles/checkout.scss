@@ -3,10 +3,25 @@
 @import 'mixins.scss';
 
 .checkout {
-  @include flex-grow(0);
-  padding-top: 30px;
-  position: relative;
+  @include flexbox();
+  @include flex-flow(row wrap);
+  justify-content: center;
+  min-height: 300px;
+  background-color: $shop13-lightgray;
+}
+
+.full-size {
   width: 100%;
+}
+
+.half-size {
+  min-width: 50%;
+}
+
+.checkout-cart {
+  //@include flex-grow(0);
+  padding: 30px 20px;
+  position: relative;
   .checkout-button {
     margin: auto;
     cursor: pointer;
@@ -23,7 +38,7 @@
   }
   .checkout-summary {
     @include flexbox();
-    @include flex-flow(row nowrap);
+    //@include flex-flow(row nowrap);
     margin: 10px auto;
     width: 300px;
     .checkout-summary-item {
@@ -39,5 +54,31 @@
     &:last-of-type {
       font-weight: bold;
     }
+    label {
+      display: inline-block;
+      min-width: 140px;
+    }
+    input, select {
+      height: 30px;
+      font-size: 1rem;
+      margin-left: 10px;
+      padding-left: 4px;
+      &:focus {
+        border: solid $shop13-brown;
+        outline: none;
+      }
+    }
   }
+}
+
+// Mobile / Tablet
+@media screen and (max-width: 768px) {
+  .checkout {
+    @include flex-flow(column nowrap);
+  }
+}
+
+// Classic
+@media screen and (min-width: 768px) {
+
 }

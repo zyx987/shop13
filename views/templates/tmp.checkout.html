@@ -1,5 +1,70 @@
-<div class="content">
-    <div>Check out your cart</div>
-    <ul ng-repeat="product in checkout.products"
-        ng-bind="product.product.name"></ul>
+<div class="checkout">
+    <div class="checkout-cart half-size">
+        <div class="checkout-summary">Check out your cart</div>
+        <div class="checkout-summary"
+             ng-repeat="item in checkout.cart">
+            <div ng-bind="item.quantity + ' x &nbsp;&nbsp;' + item.product.brand + ' - ' + item.product.name"></div>
+        </div>
+        <div class="checkout-summary"
+             ng-if="checkout.quantity.shipping"
+             ng-bind="'Price (including shipping): ' + (checkout.quantity.totalPrice | number:2) + ' CHF'"></div>
+        <div class="checkout-summary"
+             ng-if="!checkout.quantity.shipping"
+             ng-bind="'Price (free shipping): ' + (checkout.quantity.totalPrice | number:2) + ' CHF'"></div>
+    </div>
+    <div class="checkout-cart half-size">
+        <div class="checkout-summary">Your data:</div>
+        <div class="checkout-summary">
+            <label for="checkout-name">Name</label>
+            <input id="checkout-name"
+                   ng-model="checkout.checkoutData.name"
+                   placeholder="your name"
+                   type="text"/>
+        </div>
+        <div class="checkout-summary">
+            <label for="checkout-address">Address</label>
+            <input id="checkout-address"
+                   ng-model="checkout.checkoutData.address"
+                   placeholder="your address"
+                   type="text"/>
+        </div>
+        <div class="checkout-summary">
+            <label for="checkout-postal">Postal code</label>
+            <input id="checkout-postal"
+                   ng-model="checkout.checkoutData.postalCode"
+                   placeholder="your postal code"
+                   type="text"/>
+        </div>
+        <div class="checkout-summary">
+            <label for="checkout-city">City</label>
+            <input id="checkout-city"
+                   ng-model="checkout.checkoutData.city"
+                   placeholder="your city"
+                   type="text"/>
+        </div>
+        <div class="checkout-summary">
+            <label for="checkout-country">Country</label>
+            <input id="checkout-country"
+                   ng-model="checkout.checkoutData.country"
+                   placeholder="your country"
+                   type="text"/>
+        </div>
+        <div class="checkout-summary">
+            <label for="checkout-payment">Payment method</label>
+            <select id="checkout-payment"
+                    ng-model="checkout.checkoutData.payment">
+                <option value="Creditcard">Credit card</option>
+                <option value="Paypal">Paypal</option>
+                <option value="Prepayment">Prepayment</option>
+            </select>
+        </div>
+        <div class="checkout-summary"></div>
+    </div>
+    <div class="checkout-cart full-size">
+        <button class="checkout-button"
+                ng-show="checkout.complete"
+                ng-click="checkout.checkout()">Pay
+        </button>
+    </div>
+
 </div>

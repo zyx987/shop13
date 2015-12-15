@@ -1,13 +1,13 @@
-/* Compiled: Rene.Jasmin | 2015-12-14 21:47:55 */
+/* Compiled: Rene.Jasmin | 2015-12-15 20:14:01 */
 
 @font-face {
   font-family: Oxygen;
-  src: url(/fonts/oxygen.woff2) format("woff2");
+  src: url(/fonts/oxygen.woff2) format("woff2"), url(/fonts/Oxygen-Regular.ttf) format("truetype");
 }
 
 @font-face {
   font-family: Oxygen;
-  src: url(/fonts/oxygen.woff2) format("woff2");
+  src: url(/fonts/oxygen.woff2) format("woff2"), url(/fonts/Oxygen-Regular.ttf) format("truetype");
 }
 
 #navigation {
@@ -184,7 +184,7 @@
 
 @font-face {
   font-family: Oxygen;
-  src: url(/fonts/oxygen.woff2) format("woff2");
+  src: url(/fonts/oxygen.woff2) format("woff2"), url(/fonts/Oxygen-Regular.ttf) format("truetype");
 }
 
 .product-order {
@@ -363,20 +363,38 @@
 
 @font-face {
   font-family: Oxygen;
-  src: url(/fonts/oxygen.woff2) format("woff2");
+  src: url(/fonts/oxygen.woff2) format("woff2"), url(/fonts/Oxygen-Regular.ttf) format("truetype");
 }
 
 .checkout {
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -moz-flex-grow: 0;
-  flex-grow: 0;
-  padding-top: 30px;
-  position: relative;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -moz-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  justify-content: center;
+  min-height: 300px;
+  background-color: #f0eceb;
+}
+
+.full-size {
   width: 100%;
 }
 
-.checkout .checkout-button {
+.half-size {
+  min-width: 50%;
+}
+
+.checkout-cart {
+  padding: 30px 20px;
+  position: relative;
+}
+
+.checkout-cart .checkout-button {
   margin: auto;
   cursor: pointer;
   display: block;
@@ -388,32 +406,28 @@
   color: white;
 }
 
-.checkout .checkout-button:hover {
+.checkout-cart .checkout-button:hover {
   background-color: #aa863a;
 }
 
-.checkout .checkout-summary {
+.checkout-cart .checkout-summary {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  -webkit-flex-flow: row nowrap;
-  -moz-flex-flow: row nowrap;
-  -ms-flex-flow: row nowrap;
-  flex-flow: row nowrap;
   margin: 10px auto;
   width: 300px;
 }
 
-.checkout .checkout-summary .checkout-summary-item {
+.checkout-cart .checkout-summary .checkout-summary-item {
   -webkit-box-flex: 10;
   -webkit-flex-grow: 10;
   -moz-flex-grow: 10;
   flex-grow: 10;
 }
 
-.checkout .checkout-summary .checkout-summary-item:last-of-type {
+.checkout-cart .checkout-summary .checkout-summary-item:last-of-type {
   text-align: right;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -421,17 +435,43 @@
   flex-grow: 0;
 }
 
-.checkout .checkout-summary:first-of-type {
+.checkout-cart .checkout-summary:first-of-type {
   font-weight: bold;
 }
 
-.checkout .checkout-summary:last-of-type {
+.checkout-cart .checkout-summary:last-of-type {
   font-weight: bold;
+}
+
+.checkout-cart .checkout-summary label {
+  display: inline-block;
+  min-width: 140px;
+}
+
+.checkout-cart .checkout-summary input, .checkout-cart .checkout-summary select {
+  height: 30px;
+  font-size: 1rem;
+  margin-left: 10px;
+  padding-left: 4px;
+}
+
+.checkout-cart .checkout-summary input:focus, .checkout-cart .checkout-summary select:focus {
+  border: solid #aa863a;
+  outline: none;
+}
+
+@media screen and (max-width: 768px) {
+  .checkout {
+    -webkit-flex-flow: column nowrap;
+    -moz-flex-flow: column nowrap;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+  }
 }
 
 @font-face {
   font-family: Oxygen;
-  src: url(/fonts/oxygen.woff2) format("woff2");
+  src: url(/fonts/oxygen.woff2) format("woff2"), url(/fonts/Oxygen-Regular.ttf) format("truetype");
 }
 
 .slide-item {
@@ -445,6 +485,8 @@
 }
 
 .custom-indicator {
+  position: relative;
+  top: -80px;
   text-align: center;
   cursor: pointer;
   padding-top: 5px;
@@ -464,6 +506,7 @@ div.custom-indicator span.active {
   height: 500px;
   width: 100%;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .slide-container img {
@@ -532,6 +575,11 @@ header {
   padding-left: 4px;
 }
 
+#title input:focus {
+  border: solid #aa863a;
+  outline: none;
+}
+
 #title .logo {
   padding-left: 40px;
   font-size: 1.7rem;
@@ -557,14 +605,6 @@ header {
   background: #f0eceb;
   top: 0;
   left: 0;
-}
-
-.red {
-  color: red;
-}
-
-.green {
-  color: green;
 }
 
 .cart-menu {
@@ -619,6 +659,57 @@ header {
   padding-right: 20px;
 }
 
+.footer-container {
+  width: 100%;
+  min-height: 50px;
+  background-color: #aa863a;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+  -moz-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.footer-container .footer-item {
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -moz-flex-grow: 0;
+  flex-grow: 0;
+  width: 250px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.footer-container .footer-item .footer-title {
+  font-weight: bold;
+}
+
+.footer-container .footer-item label {
+  padding-left: 4px;
+  height: 50px;
+}
+
+.footer-container .footer-item label:hover {
+  background-color: #729f98;
+}
+
+.footer-container .footer-item input {
+  height: 30px;
+  font-size: 1rem;
+  margin-left: 10px;
+  padding-left: 4px;
+}
+
+.footer-container .footer-item input:focus {
+  border: solid #729f98;
+  outline: none;
+}
+
 @media screen and (max-width: 768px) {
   #title {
     -webkit-flex-flow: column nowrap;
@@ -629,5 +720,11 @@ header {
   }
   .title-item {
     height: 50px;
+  }
+  .footer-container {
+    -webkit-flex-flow: column nowrap;
+    -moz-flex-flow: column nowrap;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
   }
 }

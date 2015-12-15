@@ -5,10 +5,6 @@
 @import 'checkout.scss';
 @import 'slide.scss';
 
-
-//urls
-//$background_img: url(/images/backgound.jpg);
-
 body {
   margin: 0;
   font: 100% $font-stack;
@@ -37,6 +33,10 @@ header {
     font-size: 1rem;
     margin-left: 10px;
     padding-left: 4px;
+    &:focus {
+      border: solid $shop13-brown;
+      outline: none;
+    }
   }
   .logo {
     padding-left: 40px;
@@ -48,27 +48,15 @@ header {
   @include flexbox();
   @include flex-flow(row wrap);
   justify-content: center;
-  //@include justify-content(space-between);
   min-height: 300px;
-  //margin: 20px;
   background-color: $shop13-lightgray;
   padding-right: 1rem;
 }
 
 .bkgrnd {
-  //background: $fallback_color $background_img no-repeat center top fixed;
-  //background-size: cover;
   background: $shop13-lightgray;
   top: 0;
   left: 0;
-}
-
-.red {
-  color: $red;
-}
-
-.green {
-  color: $green;
 }
 
 .cart-menu {
@@ -107,6 +95,41 @@ header {
   padding-right: 20px;
 }
 
+.footer-container {
+  width: 100%;
+  min-height: 50px;
+  background-color: $shop13-brown;
+  @include flexbox();
+  @include flex-flow(row nowrap);
+  justify-content: center;
+  .footer-item {
+    @include flex-grow(0);
+    width: 250px;
+    padding: 20px;
+    cursor: pointer;
+    .footer-title {
+      font-weight: bold;
+    }
+    label {
+      padding-left: 4px;
+      height: 50px;
+      &:hover {
+        background-color: $shop13-lightgreen;
+      }
+    }
+    input {
+      height: 30px;
+      font-size: 1rem;
+      margin-left: 10px;
+      padding-left: 4px;
+      &:focus {
+        border: solid $shop13-lightgreen;
+        outline: none;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
   #title {
     @include flex-flow(column nowrap);
@@ -115,5 +138,7 @@ header {
   .title-item {
     height: 50px;
   }
-
+  .footer-container {
+    @include flex-flow(column nowrap);
+  }
 }

@@ -14,8 +14,6 @@ $navigation-dropdown: #5f6975;
 $shop13-gray: #403b3f;
 //$shop13-green: #1fda9a;
 
-
-
 $shop13-lightgray: #f0eceb;
 $shop13-lightgreen: #729f98;
 $shop13-green: #283018;
@@ -24,7 +22,8 @@ $shop13-brown: #aa863a;
 // Font
 @font-face {
   font-family: Oxygen;
-  src: url(/fonts/oxygen.woff2) format('woff2')
+  src: url(/fonts/oxygen.woff2) format('woff2'),
+  url(/fonts/Oxygen-Regular.ttf) format('truetype')
 }
 
 $font-stack: 'Oxygen', Helvetica, sans-serif;

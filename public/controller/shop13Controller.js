@@ -31,7 +31,7 @@
             // This way if you enter a search text in the input field,
             // the router automatically changes to search view
             $scope.$watch(
-                function (scope) {
+                function () {
                     return (vm.search);
                 },
                 function (newValue, oldValue) {
