@@ -3,7 +3,7 @@
  */
 
 
-(function () {
+(function (angular) {
 
     /** Not a Global Scope inside here */
 
@@ -52,8 +52,8 @@
     };
 
     setInterval(function () {
-        console.log('Watchers: ' + window.countWatchers());
+        //console.log('Watchers: ' + window.countWatchers());
     }, 5000);
 
 
-})();
+})(angular);

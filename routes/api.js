@@ -23,6 +23,7 @@ var db = new Datastore({filename: './products/products.db', autoload: true});
 //    this.description = data.description;
 //    this.color = data.color;
 //    this.picUrl = data.picUrl;
+//    this.rating = [];
 //};
 //
 //data.products.forEach(function (product) {
@@ -85,6 +86,18 @@ router.get("/products/:id",
         db.findOne({id: Number(req.params.id)}, function (err, doc) {
             if (doc) {
                 res.json([doc]);
+            } else {
+                res.sendStatus(404);
+            }
+        });
+    }
+);
+
+router.post("/products/:id",
+    function (req, res) {
+        db.update({id: Number(req.params.id)}, {$push: {rating: req.body.rating}}, {}, function (err, doc) {
+            if (doc) {
+                res.sendStatus(200);
             } else {
                 res.sendStatus(404);
             }

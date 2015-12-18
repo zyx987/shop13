@@ -19,9 +19,7 @@
  *
  */
 
-(function () {
-
-    /** Not a Global Scope inside here */
+(function (angular) {
 
     'use strict';
 
@@ -52,6 +50,7 @@
         'sideMenuDirective',
         'slideDirective',
         'classicMenuDirective',
+        'productDetailDirective',
         'helpers',
         'shop13Filters'
     ]);
@@ -76,6 +75,7 @@
      * */
     app.run(
         function (productService,
+                  cartService,
                   $state) {
 
             /**
@@ -190,9 +190,33 @@
                             $stateProviderRef.state(value.name, state);
                         }
                     );
+                    /** when the brands are loaded and the routes are created,
+                     *  load the products from api and create the routes */
+                    productService.update(function () {
+                        angular.forEach(productService.all,
+                            function (product) {
+                                var state = {
+                                    "url": "/product/" + product.id,
+                                    "template": '<product-detail ctrl-model="vm.product" ' +
+                                    'quantity="vm.quantity"></product-detail>',
+                                    "controller": function () {
+                                        var vm = this;
+                                        productService.getById(product.id, function (product) {
+                                            vm.product = product[0];
+                                            vm.quantity = cartService.getQuantity(product[0].id);
+                                        });
+                                    },
+                                    "controllerAs": 'vm'
+                                };
+                                $stateProviderRef.state("product_" + product.id, state);
+                            }
+                        );
+                    });
                 });
             });
         }
     );
 
-})();
+})(angular);
+
+

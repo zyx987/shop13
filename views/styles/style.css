@@ -1,4 +1,4 @@
-/* Compiled: Rene.Jasmin | 2015-12-15 20:14:01 */
+/* Compiled: Rene.Jasmin | 2015-12-18 22:56:47 */
 
 @font-face {
   font-family: Oxygen;
@@ -10,20 +10,20 @@
   src: url(/fonts/oxygen.woff2) format("woff2"), url(/fonts/Oxygen-Regular.ttf) format("truetype");
 }
 
-#navigation {
+#navigation-classic {
   position: relative;
   z-index: 999;
   width: 100%;
 }
 
-#navigation nav {
+#navigation-classic nav {
   text-align: left;
   margin-right: 40px;
   font-size: 100%;
   height: 50px;
 }
 
-#navigation nav ul {
+#navigation-classic nav ul {
   background: #f0eceb;
   padding: 0 20px;
   list-style: none;
@@ -32,7 +32,7 @@
   margin: 0;
 }
 
-#navigation nav ul ul {
+#navigation-classic nav ul ul {
   display: none;
   background: #729f98;
   padding: 0;
@@ -40,50 +40,50 @@
   top: 100%;
 }
 
-#navigation nav ul ul li {
+#navigation-classic nav ul ul li {
   float: none;
   position: relative;
 }
 
-#navigation nav ul ul li a {
+#navigation-classic nav ul ul li a {
   padding: 5px 20px;
   color: white;
 }
 
-#navigation nav ul ul li a:hover {
+#navigation-classic nav ul ul li a:hover {
   background: #aa863a;
 }
 
-#navigation nav ul ul ul {
+#navigation-classic nav ul ul ul {
   position: absolute;
   left: 100%;
   top: 0;
 }
 
-#navigation nav ul li {
+#navigation-classic nav ul li {
   float: left;
 }
 
-#navigation nav ul li:hover {
+#navigation-classic nav ul li:hover {
   background: #aa863a;
 }
 
-#navigation nav ul li:hover > ul {
+#navigation-classic nav ul li:hover > ul {
   display: block;
 }
 
-#navigation nav ul li:hover a {
+#navigation-classic nav ul li:hover a {
   color: white;
 }
 
-#navigation nav ul li a {
+#navigation-classic nav ul li a {
   display: block;
   padding: 10px 10px;
   color: #757575;
   text-decoration: none;
 }
 
-#navigation nav ul:after {
+#navigation-classic nav ul:after {
   content: "";
   clear: both;
   display: block;
@@ -168,7 +168,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  #navigation {
+  #navigation-classic {
     display: none;
   }
 }
@@ -218,7 +218,7 @@
   min-height: 300px;
   width: 300px;
   margin: 20px;
-  cursor: context-menu;
+  cursor: pointer;
   overflow: hidden;
 }
 
@@ -340,6 +340,79 @@
   -ms-transition: height 0.2s 0.3s ease-in;
   -o-transition: height 0.2s 0.3s ease-in;
   transition: height 0.2s 0.3s ease-in;
+}
+
+.product-detail {
+  margin: 40px;
+}
+
+.product-detail .title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.product-detail textarea {
+  resize: none;
+}
+
+.product-detail button.add-button {
+  cursor: pointer;
+  display: block;
+  border: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: green;
+  font-size: 1.1rem;
+  bottom: 10px;
+  left: 0;
+}
+
+.product-detail button.add-button:hover {
+  color: white;
+  background-color: #403b3f;
+}
+
+.product-detail button.remove-button {
+  cursor: pointer;
+  display: block;
+  border: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: red;
+  bottom: 10px;
+  right: 0;
+}
+
+.product-detail button.remove-button:hover {
+  color: white;
+  background-color: #403b3f;
+}
+
+.product-detail .star-rating {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.product-detail .star-rating .star {
+  padding: 1px;
+  color: #ddd;
+  font-size: 20px;
+  text-shadow: .05em .05em #aaa;
+  list-style-type: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.product-detail .star-rating .star.filled {
+  color: #aa863a;
+}
+
+.product-detail .star-rating.readonly .star.filled {
+  color: #729f98;
 }
 
 @media screen and (max-width: 768px) {

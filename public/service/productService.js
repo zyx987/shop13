@@ -2,9 +2,7 @@
  * Created by rene.ulrich on 07.11.2015.
  */
 
-(function () {
-
-    /** Not a Global Scope inside here */
+(function (angular) {
 
     'use strict';
 
@@ -21,6 +19,7 @@
         this.description = data.description || 'No description';
         this.color = data.color || null;
         this.picUrl = data.picUrl;
+        this.rating = data.rating || null;
         return this;
     };
 
@@ -83,6 +82,9 @@
                 /** Get Product Brands from api: /api/brands */
                 getBrands = function (callback) {
                     restService.get('/api/brands', brands, {}, Brands, callback);
+                },
+                setRating = function (id, rating, callback) {
+                    restService.post('/api/products/', id, rating, callback);
                 };
 
             /** Make data and functions public */
@@ -99,9 +101,10 @@
                 getBySubCategory: getBySubCategory,
                 getCategoryTree: getCategoryTree,
                 getBrands: getBrands,
-                getByBrand: getByBrand
+                getByBrand: getByBrand,
+                setRating: setRating
             };
         }
     );
 
-})();
+})(angular);

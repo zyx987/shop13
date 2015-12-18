@@ -19,7 +19,7 @@
   min-height: 300px;
   width: 300px;
   margin: 20px;
-  cursor: context-menu;
+  cursor: pointer;
   overflow: hidden;
   img {
     margin: 50px 10px 10px 10px;
@@ -107,6 +107,74 @@
     @include transition(height, 0.2s 0.3s ease-in);
   }
 }
+
+.product-detail {
+  margin: 40px;
+  .title {
+    font-size: $font-size-normal;
+    font-weight: bold;
+    padding-bottom: 20px;
+  }
+  textarea {
+    resize: none;
+  }
+  button.add-button {
+    //position: absolute;
+    cursor: pointer;
+    display: block;
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: green;
+    font-size: $font-size-normal;
+    bottom: 10px;
+    left: 0;
+    &:hover {
+      color: white;
+      background-color: $shop13-gray;
+    }
+  }
+  button.remove-button {
+    //position: absolute;
+    cursor: pointer;
+    display: block;
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: red;
+    bottom: 10px;
+    right: 0;
+    &:hover {
+      color: white;
+      background-color: $shop13-gray;
+    }
+  }
+  .star-rating {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+
+    .star {
+      padding: 1px;
+      color: #ddd;
+      font-size: 20px;
+      text-shadow: .05em .05em #aaa;
+      list-style-type: none;
+      display: inline-block;
+      cursor: pointer;
+
+      &.filled {
+        color: $shop13-brown;
+      }
+    }
+    &.readonly .star.filled {
+      color: $shop13-lightgreen;
+    }
+  }
+}
+
 
 // Mobile / Tablet
 @media screen and (max-width: 768px) {

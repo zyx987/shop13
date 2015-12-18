@@ -2,9 +2,7 @@
  * Created by Rene Ulrich on 28.11.2015.
  */
 
-(function () {
-
-    /** Not a Global Scope inside here */
+(function (angular) {
 
     'use strict';
 
@@ -14,7 +12,8 @@
      * Product view directive
      * */
     app.directive('productView',
-        function (cartService) {
+        function (cartService,
+                  $state) {
             return {
                 templateUrl: 'templates/tmp.product.html',
                 restrict: 'AE',
@@ -26,20 +25,9 @@
                 },
                 link: function (scope, element, attrs) {
                     scope.quantity = cartService.getQuantity(scope.ctrlModel.id);
-                    //element.on('mouseenter', function (e) {
-                    //    if (!element.find('p').hasClass('product-item-description')) {
-                    //        element.find('p').addClass('product-item-description');
-                    //    }
-                    //    e.stopPropagation();
-                    //    e.preventDefault();
-                    //});
-                    //element.on('mouseleave', function (e) {
-                    //    if (element.find('p').hasClass('product-item-description')) {
-                    //        element.find('p').removeClass('product-item-description');
-                    //    }
-                    //    e.stopPropagation();
-                    //    e.preventDefault();
-                    //});
+                    element.on('click', function () {
+                        $state.go('product_' + scope.ctrlModel.id);
+                    });
                 }
             }
         }
@@ -65,7 +53,7 @@
                     var fitWidth = 280;
                     if (Number(attrs.fitWidth)) {
                         fitWidth = Number(attrs.fitWidth);
-                    } else if (attrs.fitWidth === 'client'){
+                    } else if (attrs.fitWidth === 'client') {
                         fitWidth = w;
                     }
                     if (ratio < 0.643) {
@@ -102,4 +90,4 @@
         };
     });
 
-})();
+})(angular);

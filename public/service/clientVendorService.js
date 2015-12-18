@@ -2,9 +2,7 @@
  * Created by Rene Ulrich on 09.12.2015.
  */
 
-(function () {
-
-    /** Not a Global Scope inside here */
+(function (angular) {
 
     'use strict';
 
@@ -34,4 +32,4 @@
         };
     });
 
-})();
+})(angular);

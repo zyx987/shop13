@@ -21,6 +21,7 @@ app.use(express.static(path.join(__dirname, '/node_modules/angular-ui-router/bui
 app.use(express.static(path.join(__dirname, '/node_modules/angular-resource')));
 app.use(express.static(path.join(__dirname, '/node_modules/angular-touch')));
 app.use(express.static(path.join(__dirname, '/node_modules/angular-carousel/dist')));
+app.use(express.static(path.join(__dirname, '/node_modules/angular-mocks')));
 app.use(express.static(path.join(__dirname, '/views/')));
 app.use(express.static(path.join(__dirname, '/products/')));
 app.use('/api', api);

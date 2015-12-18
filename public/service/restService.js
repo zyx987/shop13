@@ -2,9 +2,7 @@
  * Created by Rene Ulrich on 28.11.2015.
  */
 
-(function () {
-
-    /** Not a Global Scope inside here */
+(function (angular) {
 
     'use strict';
 
@@ -14,28 +12,47 @@
         function ($resource) {
             /** get data from api */
             var get = function (url, data, query, model, callback) {
-                var dataIn = $resource(url, query, {
-                    query: {
-                        interceptor: {
-                            response: function (data) {
-                                //console.log(data.status);
+                    var dataIn = $resource(url, query, {
+                        query: {
+                            interceptor: {
+                                response: function (data) {
+                                    //console.log(data.status);
+                                },
+                                responseError: function (data) {
+                                    console.log("Puh.. you get a " + data.status + " on resource: " + url);
+                                }
                             },
-                            responseError: function (data) {
-                                console.log("Puh.. you get a " + data.status + " on resource: " + url);
-                            }
-                        },
-                        isArray: true
-                    }
-                }).query(function () {
-                    data.length = 0; // Liste löschen
-                    dataIn.forEach(function (entry) {
-                        data.push(new model(entry));
+                            isArray: true
+                        }
+                    }).query(function () {
+                        data.length = 0; // Liste löschen
+                        dataIn.forEach(function (entry) {
+                            data.push(new model(entry));
+                        });
+                        if (typeof(callback) === 'function') {
+                            callback(data);
+                        }
                     });
-                    if (typeof(callback) === 'function') {
-                        callback(data);
-                    }
-                });
-            };
+                },
+                post = function (url, id, data, callback) {
+                    data = JSON.stringify({rating: data});
+                    $resource(url + ':id', {id: id}, {
+                        update: {
+                            method: 'POST', interceptor: {
+                                response: function (data) {
+                                    //console.log(data.status);
+                                },
+                                responseError: function (data) {
+                                    //console.log(data.status);
+                                }
+                            }
+                        }
+                    }).update(data, function () {
+                        if (typeof(callback) === 'function') {
+                            callback(data);
+                        }
+                    });
+                };
             return {
                 /**
                  * get data from api
@@ -45,9 +62,10 @@
                  * @param model - data model constructor
                  * @param callback - function to call when data are ready
                  * */
-                get: get
+                get: get,
+                post: post
             };
         }
     );
 
-})();
+})(angular);

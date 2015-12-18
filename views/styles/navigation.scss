@@ -2,7 +2,7 @@
 @import 'colors.scss';
 @import 'mixins.scss';
 
-#navigation {
+#navigation-classic {
   position: relative;
   z-index: 999;
   width: 100%;
@@ -132,7 +132,7 @@
 
 // Mobile / Tablet
 @media screen and (max-width: 768px) {
-  #navigation {
+  #navigation-classic {
     display: none;
   }
 }
