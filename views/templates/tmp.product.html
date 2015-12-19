@@ -4,15 +4,23 @@
      fit-img
      fit-height="180"
      fit-width="280"/>
+<div class="product-header">
+    <div ng-show="::ctrlModel.delivery === 'stock'"
+         ng-bind="'In stock'"></div>
+    <div ng-show="::ctrlModel.delivery !== 'stock'"
+         ng-bind="'Delivery in: ' + ctrlModel.delivery + ' days'"></div>
+</div>
 <div class="product-item-description">
     <div class="description"
          ng-bind="::ctrlModel.short"></div>
     <div class="button-container">
-        <add-button product-id="ctrlModel.id"></add-button>
+        <add-button product-id="ctrlModel.id"
+                    display-text="+"></add-button>
         <div class="quantity"
              ng-bind="quantity + ' in your cart'"></div>
         <remove-button ng-show="quantity"
-                       product-id="ctrlModel.id"></remove-button>
+                       product-id="ctrlModel.id"
+                       display-text="X"></remove-button>
     </div>
 </div>
 <div class="product-title">

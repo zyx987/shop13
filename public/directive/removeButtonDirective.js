@@ -15,9 +15,11 @@
         function (cartService) {
             return {
                 restrict: 'E',
-                template: '<button class="remove-button">X</button>',
+                template: '<button class="remove-button" ' +
+                'ng-bind="displayText"></button>',
                 scope: {
-                    productId: '='
+                    productId: '=',
+                    displayText: '@'
                 },
                 link: function (scope, element, attrs) {
                     element.on('click', function (e) {

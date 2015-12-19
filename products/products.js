@@ -85,7 +85,7 @@ module.exports.products = [
         "brand": 'MXR',
         "orderNo": 'mxr_300',
         "price": 89.90,
-        "delivery": '3-5 days',
+        "delivery": '3-5',
         "category": 'effects',
         "subCategory": 'distortion',
         "short": 'This little yellow box is responsible for those great distortion sounds heard on so many classic ' +

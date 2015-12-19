@@ -14,6 +14,7 @@
         this.brand = data.brand;
         this.category = data.category;
         this.price = data.price;
+        this.delivery = data.delivery;
         this.subCategory = data.subCategory;
         this.short = data.short || 'No short description';
         this.description = data.description || 'No description';

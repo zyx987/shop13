@@ -8,14 +8,17 @@
 
     var app = angular.module('productDetailDirective', []);
 
+    /**
+     * The rating function should only be possible for logged on persons!
+     * As there is no login yet, rating is possible for guest too
+     * */
     app.directive('productDetail',
         function (cartService,
-                  productService,
-                  $timeout) {
+                  productService) {
 
             var Rating = function () {
                 this.user = 'guest';
-                this.stars = 3;
+                this.stars = 4;
                 this.comment = '';
                 this.time = Date.now();
                 return this;
@@ -53,9 +56,9 @@
         return {
             restrict: 'EA',
             template: '<ul class="star-rating" ng-class="{readonly: readonly}">' +
-            '  <li ng-repeat="star in stars" class="star" ng-class="{filled: star.filled}" ng-click="toggle($index)">' +
-            '    &#9733' + // or &#9733
-            '  </li>' +
+            '<li ng-repeat="star in stars" class="star" ng-class="{filled: star.filled}" ng-click="toggle($index)">' +
+            '&#9733' +
+            '</li>' +
             '</ul>',
             scope: {
                 ratingValue: '=ngModel',
@@ -88,6 +91,5 @@
             }
         };
     });
-
 
 })(angular);

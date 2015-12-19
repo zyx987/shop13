@@ -1,30 +1,49 @@
 <div class="product-detail">
     <div class="title"
          ng-bind="ctrlModel.brand + ' - ' + ctrlModel.name"></div>
-    <div class="title"
-         ng-bind="quantity + ' in your cart'"></div>
-    <add-button product-id="ctrlModel.id"></add-button>
-    <remove-button ng-show="quantity"
-                   product-id="ctrlModel.id"></remove-button>
-    <img ng-src="{{ctrlModel.picUrl}}"
-         height="300">
-    <div ng-bind="ctrlModel.description"></div>
-    <div ng-bind="'Rate this product:'"></div>
-    <star-rating ng-model="rateThis.stars"
-                 readonly="false"
-                 on-rating-select="setRating(rating)"></star-rating>
-    <br>
-    <textarea ng-model="rateThis.comment"
-              rows="6"
-              cols="50"></textarea><br>
-    <button ng-click="sendRating(ctrlModel.id)">Rate it now</button>
-    <div ng-show="ctrlModel.rating.length"
-         ng-repeat="rating in ctrlModel.rating | orderBy: '-time' | limitTo: 5">
-        <star-rating ng-model="rating.stars"
-                     readonly="true"></star-rating>
-        <div ng-bind="rating.comment"></div>
-        <div ng-bind="rating.time | date:'d.MM.yyyy HH:mm:ss'"></div>
+    <div class="cart">
+        <div class="title"
+             ng-bind="quantity + ' in your cart'"
+             ui-sref="cart"></div>
+        <add-button product-id="ctrlModel.id"
+                    display-text="Add to your cart"></add-button>
+        <remove-button ng-show="quantity"
+                       product-id="ctrlModel.id"
+                       display-text="Remove from your cart"></remove-button>
     </div>
-    <div ng-show="!ctrlModel.rating.length"
-         ng-bind="'No ratings yet!'"></div>
+    <img ng-src="{{::ctrlModel.picUrl}}"
+         height="{{::imgHeight}}"
+         width="{{::imgWidth}}"
+         fit-img
+         fit-height="300"
+         fit-width="400"/>
+
+    <div class="description"
+         ng-bind="ctrlModel.description"></div>
+    <div class="rating">
+        <div class="rating-entry">
+            <div ng-bind="'Rate this product:'"></div>
+            <star-rating ng-model="rateThis.stars"
+                         readonly="false"
+                         on-rating-select="setRating(rating)"></star-rating>
+            <br>
+            <textarea ng-model="rateThis.comment"
+                      rows="6"
+                      cols="50"></textarea><br>
+            <button ng-click="sendRating(ctrlModel.id)">Rate it now</button>
+        </div>
+        <div class="rating-hist">
+            <div ng-show="ctrlModel.rating.length"
+                 ng-repeat="rating in ctrlModel.rating | orderBy: '-time' | limitTo: 5"
+                    class="rating-hist-entry">
+                <star-rating ng-model="rating.stars"
+                             readonly="true"></star-rating>
+                <div ng-bind="'Rating by ' + rating.user"></div>
+                <div ng-bind="rating.comment"></div>
+                <div ng-bind="rating.time | date:'d.MM.yyyy HH:mm:ss'"></div>
+            </div>
+        </div>
+        <div ng-show="!ctrlModel.rating.length"
+             ng-bind="'Be the first to rate this product!'"></div>
+    </div>
 </div>

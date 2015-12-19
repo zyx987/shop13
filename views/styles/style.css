@@ -1,4 +1,4 @@
-/* Compiled: Rene.Jasmin | 2015-12-18 22:56:47 */
+/* Compiled: rene.ulrich | 2015-12-19 14:47:59 */
 
 @font-face {
   font-family: Oxygen;
@@ -230,7 +230,7 @@
 .product-item .product-title {
   font-size: 1.1rem;
   position: absolute;
-  bottom: 00px;
+  bottom: 0px;
   width: 280px;
   padding: 0 10px;
   height: 50px;
@@ -259,6 +259,17 @@
   -webkit-flex-grow: 0;
   -moz-flex-grow: 0;
   flex-grow: 0;
+}
+
+.product-item .product-header {
+  position: absolute;
+  top: 0px;
+  height: 40px;
+  width: 300px;
+  line-height: 40px;
+  padding: 0 10px;
+  color: white;
+  background-color: #aa863a;
 }
 
 .product-item .product-item-description {
@@ -350,45 +361,77 @@
   font-size: 1.1rem;
   font-weight: bold;
   padding-bottom: 20px;
+  padding-right: 20px;
 }
 
 .product-detail textarea {
   resize: none;
 }
 
-.product-detail button.add-button {
+.product-detail img {
+  float: none;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.product-detail button {
   cursor: pointer;
   display: block;
   border: none;
   height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  background-color: green;
+  color: white;
+  background-color: #729f98;
   font-size: 1.1rem;
-  bottom: 10px;
-  left: 0;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
-.product-detail button.add-button:hover {
+.product-detail button:hover {
   color: white;
-  background-color: #403b3f;
+  background-color: #aa863a;
 }
 
-.product-detail button.remove-button {
+.product-detail .cart {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: column wrap;
+  -moz-flex-flow: column wrap;
+  -ms-flex-flow: column wrap;
+  flex-flow: column wrap;
+  padding-bottom: 10px;
   cursor: pointer;
-  display: block;
-  border: none;
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  background-color: red;
-  bottom: 10px;
-  right: 0;
 }
 
-.product-detail button.remove-button:hover {
-  color: white;
-  background-color: #403b3f;
+.product-detail .cart .title:hover {
+  color: #aa863a;
+}
+
+.product-detail .rating {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: column wrap;
+  -moz-flex-flow: column wrap;
+  -ms-flex-flow: column wrap;
+  flex-flow: column wrap;
+  clear: both;
+}
+
+.product-detail .rating .rating-entry {
+  margin-right: 47px;
+}
+
+.product-detail .rating .rating-hist .rating-hist-entry {
+  padding-bottom: 10px;
+}
+
+.product-detail .description {
+  margin-bottom: 20px;
 }
 
 .product-detail .star-rating {
@@ -431,6 +474,21 @@
     -moz-flex-flow: row wrap;
     -ms-flex-flow: row wrap;
     flex-flow: row wrap;
+  }
+  .product-detail .cart {
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+  }
+  .product-detail img {
+    float: left;
+  }
+  .product-detail .rating {
+    -webkit-flex-flow: row nowrap;
+    -moz-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
   }
 }
 
