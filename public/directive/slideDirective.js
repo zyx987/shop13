@@ -9,7 +9,7 @@
     var app = angular.module('slideDirective', []);
 
     /**
-     * Product view directive
+     * Slide view directive on home direction
      * */
     app.directive('shop13Slide',
         function () {

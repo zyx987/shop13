@@ -8,6 +8,9 @@
 
     var app = angular.module('searchService', []);
 
+    /**
+     * Service for exchanging search data
+     * */
     app.factory('searchService',
         function () {
             return {

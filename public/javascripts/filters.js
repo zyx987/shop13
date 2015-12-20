@@ -8,6 +8,9 @@
 
     var filters = angular.module('shop13Filters', []);
 
+    /**
+     * This filter trims the length of a text for views
+     * */
     filters.filter('trim', function () {
         return function (text, length, end) {
             if (isNaN(length)) {

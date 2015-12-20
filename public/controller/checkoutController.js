@@ -2,14 +2,14 @@
  * Created by Rene Ulrich on 28.11.2015.
  */
 
-(function (angular) {
+;(function (angular) {
 
     'use strict';
 
     var app = angular.module('checkoutController', []);
 
     /**
-     * Cart controller of shop13 application
+     * Checkout controller of shop13 application
      * */
     app.controller('CheckoutController',
 

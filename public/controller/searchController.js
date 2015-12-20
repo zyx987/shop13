@@ -2,14 +2,14 @@
  * Created by Rene Ulrich on 03.12.2015.
  */
 
-(function (angular) {
+;(function (angular) {
 
     'use strict';
 
     var app = angular.module('searchController', []);
 
     /**
-     * Main controller of shop13 application
+     * Search controller of shop13 application
      * */
     app.controller('SearchController',
         function (productService,

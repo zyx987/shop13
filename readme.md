@@ -7,7 +7,7 @@ This is an e-shop application for guitar and related stuff.
 You need the following binaries installed:
 * [node](https://nodejs.org/)
 
-Install the following npm tools globally
+Install the following npm tool globally
 ```$
 npm install -g gulp tsd
 ```
@@ -17,10 +17,10 @@ npm install -g gulp tsd
 npm install
 ```
 
-## Run
+## Build
 
 ```$
 gulp
 ```
 
-browser starts at http://127.0.0.1:3000
+View at http://127.0.0.1:3000

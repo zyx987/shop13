@@ -8,6 +8,9 @@
 
     var app = angular.module('checkoutButtonDirective', []);
 
+    /**
+     * This directive is for checking out the cart
+     * */
     app.directive('checkoutButton',
         function ($state) {
             return {

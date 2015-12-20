@@ -9,7 +9,9 @@ var router = express.Router();
 //var data = require("../products/products.js");
 var Datastore = require('nedb');
 var db = new Datastore({filename: './products/products.db', autoload: true});
+var orders = new Datastore({filename: './products/orders.db', autoload: true});
 
+// This is used to create the products database
 //var Product = function (data) {
 //    this.id = data.id;
 //    this.name = data.name;
@@ -96,6 +98,18 @@ router.get("/products/:id",
 router.post("/products/:id",
     function (req, res) {
         db.update({id: Number(req.params.id)}, {$push: {rating: req.body.rating}}, {}, function (err, doc) {
+            if (doc) {
+                res.sendStatus(200);
+            } else {
+                res.sendStatus(404);
+            }
+        });
+    }
+);
+
+router.put("/orders",
+    function (req, res) {
+        orders.insert(req.body.order, function (err, doc) {
             if (doc) {
                 res.sendStatus(200);
             } else {

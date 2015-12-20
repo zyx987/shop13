@@ -8,6 +8,9 @@
 
     var app = angular.module('classicMenuDirective', []);
 
+    /**
+     * This directive shows the classic menu
+     * */
     app.directive('classicMenu',
         function () {
             return {

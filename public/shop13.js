@@ -16,7 +16,6 @@
  * - Responsive design for desktop / mobile
  * - Quick search function
  *
- *
  */
 
 (function (angular) {
@@ -72,6 +71,7 @@
 
     /**
      * Application is now ready to run
+     * Configure all routes inside here
      * */
     app.run(
         function (productService,
@@ -218,5 +218,3 @@
     );
 
 })(angular);
-
-

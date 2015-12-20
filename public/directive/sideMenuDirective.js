@@ -8,6 +8,9 @@
 
     var app = angular.module('sideMenuDirective', []);
 
+    /**
+     * Side menu directive
+     * */
     app.directive('sideMenu',
         function (clientVendor) {
 

@@ -11,6 +11,10 @@
 
     var app = angular.module('helpers', []);
 
+    /**
+     * Some helper functions
+     * */
+
     Array.prototype.merge = function (/* variable number of arrays */) {
         for (var i = 0; i < arguments.length; i++) {
             var array = arguments[i];

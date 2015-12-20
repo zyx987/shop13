@@ -14,6 +14,33 @@
         return this;
     };
 
+    var ProductOrder = function (data) {
+        this.quantity = data.quantity;
+        this.id = data.product.id;
+        this.price = data.product.price;
+        return this;
+    };
+
+    var CheckoutData = function (data, cart) {
+        var cartData = [];
+        this.id = Date.now();
+        this.name = data.name;
+        this.address = data.address;
+        this.postalCode = data.postalCode;
+        this.city = data.city;
+        this.country = data.country;
+        this.payment = data.payment;
+        this.status = 'pending';
+        cart.forEach(function (product) {
+            cartData.push(new ProductOrder(product));
+        });
+        this.cart = cartData;
+        return this;
+    };
+
+    /**
+     * Cart service with all related function incl. api calls
+     * */
     app.factory('cartService',
         function (restService,
                   productService) {
@@ -93,14 +120,14 @@
                     return quantity;
                 },
                 checkoutCart = function () {
-                    // ToDo:
-                    // Put cart and user data to api
-                    // In callback:
-                    cart.length = 0;
-                    Object.keys(checkoutData).forEach(function (key) {
-                        checkoutData[key] = '';
+                    var order = new CheckoutData(checkoutData, cart);
+                    restService.put('api/orders', {order: order}, function () {
+                        cart.length = 0;
+                        Object.keys(checkoutData).forEach(function (key) {
+                            checkoutData[key] = '';
+                        });
+                        count();
                     });
-                    count();
                 };
 
             /** Private data and functions */

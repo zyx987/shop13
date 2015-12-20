@@ -2,7 +2,7 @@
  * Created by Rene Ulrich on 29.11.2015.
  */
 
-(function (angular) {
+;(function (angular) {
 
     'use strict';
 
@@ -10,6 +10,7 @@
 
     /**
      * Home controller of shop13 application
+     * Controls the slides on the home direction
      * */
     app.controller('HomeController',
 

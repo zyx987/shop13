@@ -1,0 +1,2 @@
+{"id":1450621438359,"name":"Test","address":"street","postalCode":"1234","city":"City","country":"CH","payment":"Paypal","status":"pending","cart":[{"quantity":1,"id":304,"price":129},{"quantity":3,"id":401,"price":29.9}],"_id":"0YdLt1F39Mur1Uyw"}
+{"id":1450621594773,"name":"John Doe","address":"Somewhere","postalCode":"3333","city":"TestCity","country":"Country","payment":"Prepayment","status":"pending","cart":[{"quantity":1,"id":111,"price":467},{"quantity":1,"id":209,"price":278}],"_id":"4NhaPq46oE3JvLpi"}

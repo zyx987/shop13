@@ -2,7 +2,7 @@
  * Created by Rene Ulrich on 28.11.2015.
  */
 
-(function (angular) {
+;(function (angular) {
 
     'use strict';
 
@@ -10,6 +10,7 @@
 
     /**
      * Main controller of shop13 application
+     * Overall data is defined here
      * */
     app.controller('Shop13Controller',
 

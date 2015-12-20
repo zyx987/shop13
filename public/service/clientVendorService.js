@@ -8,8 +8,10 @@
 
     var app = angular.module('clientVendorService', []);
 
+    /**
+     * This service detects the client vendor
+     * */
     app.service('clientVendor', function () {
-
         // This function is from: https://davidwalsh.name/vendor-prefix
         var prefix = (function () {
             var styles = window.getComputedStyle(document.documentElement, ''),

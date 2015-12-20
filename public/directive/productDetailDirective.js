@@ -9,6 +9,7 @@
     var app = angular.module('productDetailDirective', []);
 
     /**
+     * This directive is for product detailed view
      * The rating function should only be possible for logged on persons!
      * As there is no login yet, rating is possible for guest too
      * */
@@ -52,6 +53,9 @@
         }
     );
 
+    /**
+     * This directive is for the star rating in product detail view
+     * */
     app.directive('starRating', function () {
         return {
             restrict: 'EA',

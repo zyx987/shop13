@@ -55,7 +55,17 @@ module.exports.products = [
         "category": 'guitars',
         "subCategory": 'electric',
         "short": 'The Les Paul Standard Reissue stays true to the specs of this iconic instrument.',
-        "description": 'none',
+        "description": 'While all 1958-’60 Les Pauls are among the most saught-after electric guitars ever made, the ' +
+        '\'59 Burst is often considered among aficonados to be the crème de la crème of the range. They are also ' +
+        'exceedingly rare, with only 635 guitars shipped that year. With sales of the Les Paul declining every year ' +
+        'since 1953, the year after its release, Gibson decided in 1958 to update the look of the model with an elegant ' +
+        'Cherry Sunburst finish. Guitars from that first year of the Burst’s production often had relatively plain ' +
+        'maple tops, but through the course of 1959, Gibson’s craftsmen built Les Pauls with tops that displayed more ' +
+        'and more highly-figured grains, making these among the most collectible of the breed today. The 1959 Les Paul ' +
+        'Standard Reissue from Gibson Custom accurately recreates the original hallowed ’59 Burst in every detail, and ' +
+        'presents it in your choice of VOS finishes: Bourbon Burst, Faded Tobacco Burst, Iced Tea Burst, Lemon Burst, ' +
+        'Sunrise Tea Burst and Washed Cherry Sunburst. Gloss: Bourbon Burst, Faded Tobacco Burst, Iced Tea Burst, ' +
+        'Lemon Burst, Sunrise Tea Burst and Washed Cherry Sunburst.',
         "color": 'Lemon burst',
         "picUrl": '/pics/guitars_101.jpg'
     },

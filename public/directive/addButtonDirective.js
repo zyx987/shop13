@@ -2,12 +2,15 @@
  * Created by Rene Ulrich on 02.12.2015.
  */
 
-(function (angular) {
+;(function (angular) {
 
     'use strict';
 
     var app = angular.module('addButtonDirective', []);
 
+    /**
+     * This directive is to add products to the cart
+     * */
     app.directive('addButton',
         function (cartService) {
             return {

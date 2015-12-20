@@ -36,6 +36,9 @@
         return this;
     };
 
+    /**
+     * Product service with all api calls
+     * */
     app.factory('productService',
         function (restService) {
 
@@ -85,7 +88,7 @@
                     restService.get('/api/brands', brands, {}, Brands, callback);
                 },
                 setRating = function (id, rating, callback) {
-                    restService.post('/api/products/', id, rating, callback);
+                    restService.post('/api/products/', id, {rating: rating}, callback);
                 };
 
             /** Make data and functions public */

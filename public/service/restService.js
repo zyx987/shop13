@@ -8,6 +8,9 @@
 
     var app = angular.module('restService', []);
 
+    /**
+     * All low level api calls
+     * */
     app.factory('restService',
         function ($resource) {
             /** get data from api */
@@ -35,10 +38,29 @@
                     });
                 },
                 post = function (url, id, data, callback) {
-                    data = JSON.stringify({rating: data});
+                    data = JSON.stringify(data);
                     $resource(url + ':id', {id: id}, {
                         update: {
                             method: 'POST', interceptor: {
+                                response: function (data) {
+                                    //console.log(data.status);
+                                },
+                                responseError: function (data) {
+                                    //console.log(data.status);
+                                }
+                            }
+                        }
+                    }).update(data, function () {
+                        if (typeof(callback) === 'function') {
+                            callback(data);
+                        }
+                    });
+                },
+                put = function (url, data, callback) {
+                    data = JSON.stringify(data);
+                    $resource(url, {}, {
+                        update: {
+                            method: 'PUT', interceptor: {
                                 response: function (data) {
                                     //console.log(data.status);
                                 },
@@ -63,7 +85,8 @@
                  * @param callback - function to call when data are ready
                  * */
                 get: get,
-                post: post
+                post: post,
+                put: put
             };
         }
     );
